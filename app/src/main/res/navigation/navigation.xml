@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/launcherFragment">
+
+    <fragment
+        android:id="@+id/launcherFragment"
+        android:name="com.amorphteam.stylistet.launcher.launcher.LauncherFragment"
+        android:label="fragment_launcher"
+        tools:layout="@layout/fragment_launcher" >
+        <action
+            android:id="@+id/action_launcherFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/collectionFragment"
+        android:name="com.amorphteam.stylistet.launcher.collection.CollectionFragment"
+        android:label="fragment_collection"
+        tools:layout="@layout/fragment_collection" >
+        <action
+            android:id="@+id/action_collectionFragment_to_customizeDataFragment"
+            app:destination="@id/customizeDataFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/customizeDataFragment"
+        android:name="com.amorphteam.stylistet.launcher.customize.CustomizeDataFragment"
+        android:label="fragment_customize_data"
+        tools:layout="@layout/fragment_customize_data" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.amorphteam.stylistet.launcher.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_collectionFragment"
+            app:destination="@id/collectionFragment" />
+    </fragment>
+</navigation>
