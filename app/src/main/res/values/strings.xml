@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Stylistet</string>
+    <string name="launcher_title">لنمط حياة عصري واستايل جديد</string>
+    <string name="launcher_title_two">تطبيق يسهل عليك الاختيار</string>
+    <string name="launcher_sign_in">تسجيل الدخول</string>
+    <string name="launcher_you_have_an_account">لدي حساب</string>
+    <string name="launcher_start_now">ابدأ الآن</string>
+
 </resources>
