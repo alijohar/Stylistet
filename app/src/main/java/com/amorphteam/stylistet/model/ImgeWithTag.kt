@@ -1,3 +1,5 @@
 package com.amorphteam.stylistet.model
 
-data class ImgeWithTag (val image:Int, val tag:String)
+import java.io.Serializable
+
+data class ImgeWithTag (val image:Int, val tag:String): Serializable

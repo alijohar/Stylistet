@@ -6,6 +6,7 @@ import com.amorphteam.stylistet.model.ImgeWithTag
 class LocalData {
 
     companion object {
+        val PASS_DATA = "PASS_DATA"
         fun getData(): ArrayList<ImgeWithTag> {
             var styleImages = ArrayList<ImgeWithTag>()
             styleImages.add(ImgeWithTag(R.drawable.new4, "street"))

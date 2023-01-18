@@ -29,10 +29,11 @@
         android:paddingBottom="@dimen/half_margin">
 
         <ImageButton
+            android:id="@+id/like"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            android:src="@drawable/heart_flat" />
+            android:src="@drawable/heart_outline_flat" />
 
         <TextView
             android:id="@+id/item_name"

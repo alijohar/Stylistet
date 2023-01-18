@@ -31,4 +31,13 @@
         <item name="rippleColor">@color/chip_ripple</item>
 
     </style>
+
+    <style name="Theme.Stylistet.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.Stylistet.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.Stylistet.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
