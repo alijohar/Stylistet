@@ -31,7 +31,7 @@
         <deviceKey>
           <Key>
             <type value="VIRTUAL_DEVICE_PATH" />
-            <value value="$USER_HOME$/.android/avd/Nexus_9_API_33.avd" />
+            <value value="$USER_HOME$/.android/avd/Pixel_4_API_33.avd" />
           </Key>
         </deviceKey>
       </Target>

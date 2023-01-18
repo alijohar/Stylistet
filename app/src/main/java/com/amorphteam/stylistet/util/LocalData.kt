@@ -8,6 +8,14 @@ class LocalData {
     companion object {
         fun getData(): ArrayList<ImgeWithTag> {
             var styleImages = ArrayList<ImgeWithTag>()
+            styleImages.add(ImgeWithTag(R.drawable.new4, "street"))
+            styleImages.add(ImgeWithTag(R.drawable.new6, "tomboy"))
+            styleImages.add(ImgeWithTag(R.drawable.new2, "tomboy"))
+            styleImages.add(ImgeWithTag(R.drawable.new3, "formal"))
+            styleImages.add(ImgeWithTag(R.drawable.new5, "boho"))
+            styleImages.add(ImgeWithTag(R.drawable.new7, "minimal"))
+            styleImages.add(ImgeWithTag(R.drawable.new1, "street"))
+            styleImages.add(ImgeWithTag(R.drawable.new8, "maximal"))
             styleImages.add(ImgeWithTag(R.drawable.a1, "elegant"))
             styleImages.add(ImgeWithTag(R.drawable.a42, "tomboy"))
             styleImages.add(ImgeWithTag(R.drawable.a2, "formal"))

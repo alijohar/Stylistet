@@ -14,4 +14,21 @@
         <item name="android:windowLightStatusBar">true</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="CustomChip" parent="Base.Widget.MaterialComponents.Chip">
+        <item name="android:checkable">true</item>
+
+        <item name="chipIconVisible">false</item>
+        <item name="checkedIconVisible">false</item>
+        <item name="closeIconVisible">false</item>
+
+        <item name="checkedIcon">@drawable/ic_mtrl_chip_checked_black</item>
+        <item name="chipStrokeColor">@color/choise_chip_text</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/choise_chip_text</item>
+        <item name="chipBackgroundColor">@color/chip_bk</item>
+        <item name="rippleColor">@color/chip_ripple</item>
+
+    </style>
 </resources>
