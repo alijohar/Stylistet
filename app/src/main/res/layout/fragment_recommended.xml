@@ -6,13 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".ui.recomanded.RecommendedFragment">
 
-    <GridView
-        android:id="@+id/gridView"
-        android:layout_margin="@dimen/activity_horizontal_margin"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:verticalSpacing="16dp"
-        android:horizontalSpacing="8dp"
-        android:layout_marginBottom="?attr/actionBarSize"
-        android:numColumns="2" />
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

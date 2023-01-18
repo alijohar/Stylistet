@@ -6,8 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.amorphteam.stylistet.R
 import com.amorphteam.stylistet.databinding.FragmentRecommendedBinding
-import com.amorphteam.stylistet.ui.adapter.StyleRecommendedGridAdapter
+import com.amorphteam.stylistet.ui.adapter.StyleRecommendedAdapter
 import com.amorphteam.stylistet.util.LocalData
 
 class RecommendedFragment : Fragment() {
@@ -25,8 +27,11 @@ class RecommendedFragment : Fragment() {
 
         _binding = FragmentRecommendedBinding.inflate(inflater, container, false)
 
-        val gridAdapter = StyleRecommendedGridAdapter(requireContext(), LocalData.getData())
-        binding.gridView.adapter = gridAdapter
+        val styleRecommendedAdapter = StyleRecommendedAdapter(requireContext(), LocalData.getData())
+        val dimen_count = resources.getInteger(R.integer.columns_count)
+        binding.recyclerView.setHasFixedSize(true)
+        binding.recyclerView.layoutManager = StaggeredGridLayoutManager(dimen_count, StaggeredGridLayoutManager.VERTICAL)
+        binding.recyclerView.adapter = styleRecommendedAdapter
         return binding.root
     }
 
