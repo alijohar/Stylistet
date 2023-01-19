@@ -7,7 +7,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.amorphteam.stylistet.databinding.FragmentFavItemsBinding
+import com.amorphteam.stylistet.ui.adapter.ItemsDetailAdapter
+import com.amorphteam.stylistet.util.LocalData
 
 class FavItemsFragment : Fragment() {
 
@@ -25,10 +28,10 @@ class FavItemsFragment : Fragment() {
         _binding = FragmentFavItemsBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textDashboard
-        favItemsViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
+        val itemsDetailAdapter = ItemsDetailAdapter(requireContext(), LocalData.getItemsData())
+        binding.recyclerView.setHasFixedSize(false)
+        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        binding.recyclerView.adapter = itemsDetailAdapter
         return root
     }
 

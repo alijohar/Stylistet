@@ -2,13 +2,30 @@ package com.amorphteam.stylistet.util
 
 import com.amorphteam.stylistet.R
 import com.amorphteam.stylistet.model.ImgeWithTag
+import com.amorphteam.stylistet.model.ItemCollection
 
 class LocalData {
 
     companion object {
         val PASS_DATA = "PASS_DATA"
+
+        fun getLikeItemsData():ArrayList<ItemCollection> {
+            val items = ArrayList<ItemCollection>()
+            items.add(ItemCollection(0, R.drawable.item1, "Elastic Waist Pleated Palazzo Trousers", "125 $", "Namshi Emirates store"))
+            items.add(ItemCollection(0, R.drawable.item2, "Pleated Palazzo Trousers Tap", "15 $", "Namshi Emirates store"))
+            items.add(ItemCollection(0, R.drawable.item3, "Trousers Shoes", "222 $", "Namshi Emirates store"))
+            return items
+        }
+
+        fun getItemsData():ArrayList<ItemCollection> {
+            val items = ArrayList<ItemCollection>()
+            items.add(ItemCollection(0, R.drawable.item1, "Elastic Waist Pleated Palazzo Trousers", "125 $", "Namshi Emirates store"))
+            items.add(ItemCollection(0, R.drawable.item2, "Pleated Palazzo Trousers Tap", "15 $", "Namshi Emirates store"))
+            items.add(ItemCollection(0, R.drawable.item3, "Trousers Shoes", "222 $", "Namshi Emirates store"))
+            return items
+        }
         fun getData(): ArrayList<ImgeWithTag> {
-            var styleImages = ArrayList<ImgeWithTag>()
+            val styleImages = ArrayList<ImgeWithTag>()
             styleImages.add(ImgeWithTag(R.drawable.new4, "street"))
             styleImages.add(ImgeWithTag(R.drawable.new6, "tomboy"))
             styleImages.add(ImgeWithTag(R.drawable.new2, "tomboy"))
