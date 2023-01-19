@@ -1,9 +1,9 @@
 package com.amorphteam.stylistet.ui.detail
 
 import android.os.Bundle
-import com.google.android.material.appbar.CollapsingToolbarLayout
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
+import android.view.Menu
+import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.amorphteam.stylistet.R
 import com.amorphteam.stylistet.databinding.ActivityDetailBinding
@@ -19,12 +19,30 @@ class DetailActivity : AppCompatActivity() {
         item = intent.getSerializableExtra(LocalData.PASS_DATA) as ImgeWithTag
 
         binding = ActivityDetailBinding.inflate(layoutInflater)
-
         binding.mainImage.setImageResource(item.image)
         setContentView(binding.root)
 
         setSupportActionBar(findViewById(R.id.toolbar))
+        supportActionBar?.setDisplayHomeAsUpEnabled(true);
+        supportActionBar?.setDisplayShowHomeEnabled(true);
         binding.toolbarLayout.title = title
 
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_detail,menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId){
+            R.id.like -> Toast.makeText(this,"About Selected",Toast.LENGTH_SHORT).show()
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

@@ -3,8 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.amorphteam.stylistet.ui.detail.DetailActivity">
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/action_like"
         android:orderInCategory="100"
+        android:icon="@drawable/heart_outline_flat"
         android:title="@string/action_settings"
-        app:showAsAction="never" />
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_share"
+        android:orderInCategory="100"
+        android:icon="@drawable/share"
+        android:title="@string/action_share"
+        app:showAsAction="ifRoom" />
 </menu>
