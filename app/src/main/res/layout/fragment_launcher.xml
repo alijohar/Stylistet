@@ -12,6 +12,8 @@
     android:orientation="vertical"
     tools:context=".launcher.launcher.LauncherFragment"
     android:background="@drawable/launcher_two"
+    android:scaleType="centerCrop"
+
     >
 
         <LinearLayout
@@ -39,7 +41,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
                 android:gravity="center"
-                android:padding="8dp"
+                android:padding="4dp"
                 android:text="@string/launcher_title_two"
                 android:textSize="16sp" />
 </LinearLayout>
@@ -74,7 +76,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
             android:gravity="center"
-            android:padding="8dp"
+            android:padding="4dp"
             android:text="@string/launcher_you_have_an_account"
             android:textColor="@color/white"
             android:textSize="16sp" />
@@ -86,7 +88,7 @@
             android:layout_margin="2dp"
             android:layout_marginEnd="8dp"
             android:gravity="center"
-            android:padding="8dp"
+            android:padding="4dp"
             android:text="@string/launcher_sign_in"
             android:textColor="@color/white"
             android:textSize="18sp"

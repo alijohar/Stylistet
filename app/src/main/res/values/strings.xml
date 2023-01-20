@@ -5,5 +5,9 @@
     <string name="launcher_sign_in">تسجيل الدخول</string>
     <string name="launcher_you_have_an_account">لدي حساب</string>
     <string name="launcher_start_now">ابدأ الآن</string>
+    <string name="collection_title">اختر النمط المفضل لديك</string>
+    <string name="collection_title_two">سنستخدم خياراتك لتخصيص الاقتراحات لك</string>
+    <string name="next">التالي</string>
+
 
 </resources>
