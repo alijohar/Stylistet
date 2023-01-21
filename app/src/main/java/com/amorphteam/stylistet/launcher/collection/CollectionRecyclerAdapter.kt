@@ -7,7 +7,7 @@ import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.amorphteam.stylistet.R
 
-class CollectionRecyclerAdapter(val arrayCollection: ArrayList<CollectionData>): RecyclerView.Adapter<CollectionRecyclerAdapter.ViewHolder>() {
+class CollectionRecyclerAdapter(private val arrayCollection: ArrayList<CollectionData>): RecyclerView.Adapter<CollectionRecyclerAdapter.ViewHolder>() {
 
 
 
@@ -16,7 +16,7 @@ class CollectionRecyclerAdapter(val arrayCollection: ArrayList<CollectionData>):
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        var view = LayoutInflater.from(parent.context).inflate(R.layout.card_view_collection_fragment, parent ,false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.card_view_collection_fragment, parent ,false)
         return ViewHolder(view)
     }
 

@@ -19,7 +19,7 @@
             >
 
             <TextView
-                android:id="@+id/launcher_title"
+                android:id="@+id/collection_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
@@ -31,7 +31,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/launcher_title_two"
+                android:id="@+id/collection_title_two"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"

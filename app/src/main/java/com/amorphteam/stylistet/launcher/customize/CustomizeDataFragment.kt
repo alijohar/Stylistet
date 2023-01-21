@@ -7,9 +7,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.amorphteam.stylistet.R
 import com.amorphteam.stylistet.databinding.FragmentCollectionBinding
 import com.amorphteam.stylistet.databinding.FragmentCustomizeDataBinding
+import com.amorphteam.stylistet.launcher.collection.CollectionData
+import com.amorphteam.stylistet.launcher.collection.CollectionRecyclerAdapter
 
 class CustomizeDataFragment : Fragment() {
 
@@ -25,8 +28,23 @@ class CustomizeDataFragment : Fragment() {
     ): View? {
 
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_customize_data,container,false)
+
+        binding.recyclerView.apply {
+            setHasFixedSize(true)
+            layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+            adapter = FavotiteColorRecyclerAdapter(ArrayList(favoriteColor))
+        }
+
         return binding.root
     }
+
+    val favoriteColor = listOf(
+        FavoriteColorData(R.drawable.nature_color,"الطبيعة"),
+        FavoriteColorData(R.drawable.pastel_color,"باستيلي"),
+        FavoriteColorData(R.drawable.bright_color,"ساطعة"),
+        FavoriteColorData(R.drawable.dark_color,"غامقة"),
+        FavoriteColorData(R.drawable.metallic_color,"متاليك")
+        )
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)

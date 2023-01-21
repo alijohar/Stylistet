@@ -8,6 +8,17 @@
     <string name="collection_title">اختر النمط المفضل لديك</string>
     <string name="collection_title_two">سنستخدم خياراتك لتخصيص الاقتراحات لك</string>
     <string name="next">التالي</string>
+    <string name="customize_title">تخصيص الاقتراحات</string>
+    <string name="customize_title_two">يمكنك تغيير هذه الإعدادات لاحقاً</string>
+    <string name="customize_favorite_color_spectrum">يمكنك تغيير هذه الإعدادات لاحقاً</string>
+    <string name="bright_color">ساطعةً</string>
+    <string name="dark_color">غامقة</string>
+    <string name="metallic_color">متاليكً</string>
+    <string name="nature_color">الطبيعةً</string>
+    <string name="pastel_color">باستيليً</string>
+
+
+
 
 
 </resources>
