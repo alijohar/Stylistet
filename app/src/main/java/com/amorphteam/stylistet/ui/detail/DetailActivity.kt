@@ -3,6 +3,8 @@ package com.amorphteam.stylistet.ui.detail
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.Window
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContentProviderCompat.requireContext
@@ -22,7 +24,7 @@ class DetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         item = intent.getSerializableExtra(LocalData.PASS_DATA) as ImgeWithTag
-
+        hideStatusBar()
         binding = ActivityDetailBinding.inflate(layoutInflater)
         binding.mainImage.setImageResource(item.image)
         setContentView(binding.root)
@@ -38,6 +40,11 @@ class DetailActivity : AppCompatActivity() {
         binding.content.recyclerView.adapter = itemsDetailAdapter
 
 
+    }
+
+    private fun hideStatusBar() {
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        this.window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

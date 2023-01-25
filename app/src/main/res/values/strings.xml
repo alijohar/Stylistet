@@ -101,4 +101,12 @@
     <string name="dislike">dislike</string>
     <string name="like">like</string>
     <string name="liked_items">Your favourites</string>
+    <string name="black_list">"You can add fav items by clicking on like button"</string>
+    <string name="black_list_title">Empty List</string>
+    <string name="profile">Your setting</string>
+    <string name="personal_detail">Personal details</string>
+    <string name="fav_items">Favourite items</string>
+    <string name="fav_pattern">Favourite color patterns</string>
+    <string name="fav_brands">favourite brands</string>
+    <string name="log_out">Log out</string>
 </resources>

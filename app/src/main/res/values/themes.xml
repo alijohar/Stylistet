@@ -14,6 +14,8 @@
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:windowLightStatusBar">true</item>
         <!-- Customize your theme here. -->
+        <item name="android:fontFamily">@font/main_font</item>
+        <item name="fontFamily">@font/main_font</item>
     </style>
 
 
@@ -42,4 +44,5 @@
     <style name="Theme.Stylistet.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.Stylistet.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
 </resources>

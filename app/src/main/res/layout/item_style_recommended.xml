@@ -28,12 +28,6 @@
         android:orientation="horizontal"
         android:paddingBottom="@dimen/half_margin">
 
-        <ImageButton
-            android:id="@+id/like"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:src="@drawable/heart_outline_flat" />
 
         <TextView
             android:id="@+id/item_name"
@@ -41,8 +35,18 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="1"
-            android:gravity="center"
+            android:textStyle="bold"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
             android:text="Rose" />
+
+        <ImageButton
+            android:id="@+id/like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:src="@drawable/like_detail" />
+
 
 
     </LinearLayout>
