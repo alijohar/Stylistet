@@ -7,12 +7,12 @@
 <androidx.cardview.widget.CardView
     android:layout_width="match_parent"
     android:layout_height="200dp"
-    android:layout_marginTop="12dp"
-    android:layout_marginLeft="16dp"
-    android:layout_marginRight="16dp"
+    android:layout_marginTop="@dimen/_12dp"
+    android:layout_marginLeft="@dimen/_16dp"
+    android:layout_marginRight="@dimen/_16dp"
     android:id="@+id/card_pertanyaan"
     card_view:cardBackgroundColor="#FFFF"
-    card_view:cardCornerRadius="8dp"
+    card_view:cardCornerRadius="@dimen/_8dp"
     android:foreground="?selectableItemBackground"
     android:clickable="true">
 
@@ -24,7 +24,7 @@
             android:id="@+id/image_collection"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            card_view:cardCornerRadius="8dp"
+            card_view:cardCornerRadius="@dimen/_8dp"
             android:scaleType="centerCrop"
 
             />

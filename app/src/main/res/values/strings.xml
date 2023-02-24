@@ -10,15 +10,21 @@
     <string name="next">التالي</string>
     <string name="customize_title">تخصيص الاقتراحات</string>
     <string name="customize_title_two">يمكنك تغيير هذه الإعدادات لاحقاً</string>
-    <string name="customize_favorite_color_spectrum">يمكنك تغيير هذه الإعدادات لاحقاً</string>
+    <string name="customize_favorite_color_spectrum">طيف الألوان المفضلً</string>
+    <string name="customize_Budget">الميزانية التقريبية</string>
+    <string name="budget1">$9</string>
+    <string name="budget2">$99 _ $9</string>
+    <string name="budget3">$999 _ $9</string>
+    <string name="budget4">$9999 _ $9</string>
+    <string name="dollar1">$</string>
+    <string name="dollar2">$$</string>
+    <string name="dollar3">$$$</string>
+    <string name="dollar4">$$$$</string>
     <string name="bright_color">ساطعةً</string>
     <string name="dark_color">غامقة</string>
     <string name="metallic_color">متاليكً</string>
     <string name="nature_color">الطبيعةً</string>
     <string name="pastel_color">باستيليً</string>
-
-
-
 
 
 </resources>

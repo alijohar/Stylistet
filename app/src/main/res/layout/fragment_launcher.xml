@@ -21,29 +21,29 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="vertical"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="@dimen/_30dp"
     >
 
             <TextView
                 android:id="@+id/launcher_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="2dp"
+                android:layout_margin="@dimen/_2dp"
                 android:gravity="center"
-                android:padding="8dp"
+                android:padding="@dimen/_8dp"
                 android:text="@string/launcher_title"
-                android:textSize="20sp"
+                android:textSize="@dimen/_20sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/launcher_title_two"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="2dp"
+                android:layout_margin="@dimen/_2dp"
                 android:gravity="center"
-                android:padding="4dp"
+                android:padding="@dimen/_4dp"
                 android:text="@string/launcher_title_two"
-                android:textSize="16sp" />
+                android:textSize="@dimen/_16sp" />
 </LinearLayout>
 
     <LinearLayout
@@ -53,45 +53,45 @@
         android:orientation="vertical"
         android:layout_gravity="bottom"
         android:gravity="bottom"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="@dimen/_30dp"
         >
 
         <Button
             android:id="@+id/launcher_start_now"
-            android:layout_width="217dp"
+            android:layout_width="@dimen/_217dp"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center"
-            android:layout_margin="2dp"
+            android:layout_margin="@dimen/_2dp"
             android:backgroundTint="@color/black"
             android:gravity="center"
-            android:padding="8dp"
+            android:padding="@dimen/_8dp"
             android:singleLine="true"
             android:text="@string/launcher_start_now"
-            android:textSize="16sp"
+            android:textSize="@dimen/_16sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/launcher_you_have_an_account"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="2dp"
+            android:layout_margin="@dimen/_2dp"
             android:gravity="center"
-            android:padding="4dp"
+            android:padding="@dimen/_4dp"
             android:text="@string/launcher_you_have_an_account"
             android:textColor="@color/white"
-            android:textSize="16sp" />
+            android:textSize="@dimen/_16sp" />
 
         <TextView
             android:id="@+id/launcher_sign_in"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="2dp"
-            android:layout_marginEnd="8dp"
+            android:layout_margin="@dimen/_2dp"
+            android:layout_marginEnd="@dimen/_8dp"
             android:gravity="center"
-            android:padding="4dp"
+            android:padding="@dimen/_4dp"
             android:text="@string/launcher_sign_in"
             android:textColor="@color/white"
-            android:textSize="18sp"
+            android:textSize="@dimen/_18sp"
             android:textStyle="bold" />
     </LinearLayout>
 

@@ -1,11 +1,13 @@
 package com.amorphteam.stylistet.launcher.customize
 
+import android.graphics.Rect
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SeekBar
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.amorphteam.stylistet.R
@@ -34,6 +36,32 @@ class CustomizeDataFragment : Fragment() {
             layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
             adapter = FavotiteColorRecyclerAdapter(ArrayList(favoriteColor))
         }
+
+        binding.seekbarTrickle.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
+            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+                when (progress){
+                    1 -> binding.trickleIndicator.text = getString(R.string.dollar1)
+                    2 -> binding.trickleIndicator.text = getString(R.string.dollar2)
+                    3 -> binding.trickleIndicator.text = getString(R.string.dollar3)
+                    4 -> binding.trickleIndicator.text = getString(R.string.dollar4)
+                }
+                when (progress){
+                    1 -> binding.trickleRateValue.text = getString(R.string.budget1)
+                    2 -> binding.trickleRateValue.text = getString(R.string.budget2)
+                    3 -> binding.trickleRateValue.text = getString(R.string.budget3)
+                    4 -> binding.trickleRateValue.text = getString(R.string.budget4)
+                }
+
+
+            }
+
+            override fun onStartTrackingTouch(seekBar: SeekBar?) { }
+
+            override fun onStopTrackingTouch(seekBar: SeekBar?) { }
+
+        })
+
+
 
         return binding.root
     }

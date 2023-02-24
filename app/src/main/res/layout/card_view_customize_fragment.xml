@@ -6,14 +6,14 @@
     <androidx.cardview.widget.CardView
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_margin="18dp"
+        android:layout_marginTop="@dimen/_12dp"
+        android:layout_marginLeft="@dimen/_16dp"
+        android:layout_marginRight="@dimen/_16dp"
+        android:layout_margin="@dimen/_18dp"
         android:id="@+id/card_pertanyaan"
         card_view:cardBackgroundColor="#FFFF"
-        card_view:cardCornerRadius="8dp"
-        card_view:contentPadding="10dp"
+        card_view:cardCornerRadius="@dimen/_8dp"
+        card_view:contentPadding="@dimen/_10dp"
         android:foreground="?selectableItemBackground"
         android:clickable="true">
 
@@ -32,14 +32,12 @@
                     android:id="@+id/color_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="@dimen/_16dp"
                     android:gravity="center_horizontal"
                     android:text="@string/dark_color"
-
                     android:textColor="@color/black" />
-
-
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -48,14 +46,13 @@
 
                 <ImageView
                     android:id="@+id/image_customize_color"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                    android:layout_width="@dimen/_100dp"
+                    android:layout_height="@dimen/_100dp"
                     android:layout_gravity="center"
-                    card_view:cardCornerRadius="8dp"
+                    card_view:cardCornerRadius="@dimen/_8dp"
                     android:scaleType="centerCrop"
-                    android:layout_marginTop="44dp"
-                    android:layout_marginBottom="16dp"
-
+                    android:layout_marginTop="@dimen/_44dp"
+                    android:layout_marginBottom="@dimen/_16dp"
                     />
 
             </LinearLayout>
