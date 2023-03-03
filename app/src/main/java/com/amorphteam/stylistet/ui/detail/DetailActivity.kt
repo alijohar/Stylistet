@@ -7,14 +7,11 @@ import android.view.Window
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.amorphteam.stylistet.R
 import com.amorphteam.stylistet.databinding.ActivityDetailBinding
 import com.amorphteam.stylistet.model.ImgeWithTag
 import com.amorphteam.stylistet.ui.adapter.ItemsDetailAdapter
-import com.amorphteam.stylistet.ui.adapter.StyleRecommendedAdapter
 import com.amorphteam.stylistet.util.LocalData
 
 class DetailActivity : AppCompatActivity() {
@@ -34,7 +31,8 @@ class DetailActivity : AppCompatActivity() {
         supportActionBar?.setDisplayShowHomeEnabled(true);
         binding.toolbarLayout.title = title
 
-        val itemsDetailAdapter = ItemsDetailAdapter(this, LocalData.getItemsData())
+        val itemsDetailAdapter = ItemsDetailAdapter(this)
+        itemsDetailAdapter.submitList(LocalData.getItemsData())
         binding.content.recyclerView.setHasFixedSize(false)
         binding.content.recyclerView.layoutManager = LinearLayoutManager(this)
         binding.content.recyclerView.adapter = itemsDetailAdapter
