@@ -23,8 +23,6 @@ class LauncherFragment : Fragment() {
     private lateinit var binding: FragmentLauncherBinding
     private lateinit var viewModel: LauncherViewModel
 
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

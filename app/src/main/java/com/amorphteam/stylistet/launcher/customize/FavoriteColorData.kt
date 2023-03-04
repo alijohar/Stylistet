@@ -1,6 +1,6 @@
 package com.amorphteam.stylistet.launcher.customize
 
-class FavoriteColorData (
+data class FavoriteColorData (
     val image: Int,
     val name: String
 )

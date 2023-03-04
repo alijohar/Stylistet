@@ -1,32 +1,48 @@
 package com.amorphteam.stylistet.launcher.customize
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.amorphteam.stylistet.R
+import com.amorphteam.stylistet.databinding.CardViewCustomizeFragmentBinding
 
-class FavotiteColorRecyclerAdapter(private val arrayColor: ArrayList<FavoriteColorData>): RecyclerView.Adapter<FavotiteColorRecyclerAdapter.ViewHolder>() {
+class FavotiteColorRecyclerAdapter(): ListAdapter<FavoriteColorData,FavotiteColorRecyclerAdapter.ViewHolder>(CustomizeDiffCallback()) {
 
+    class ViewHolder private constructor(val binding: CardViewCustomizeFragmentBinding):RecyclerView.ViewHolder(binding.root){
 
-    class ViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
-        var image = itemView.findViewById<ImageView>(R.id.image_customize_color)
-        var name = itemView.findViewById<TextView>(R.id.color_name)
+        fun bind(item: FavoriteColorData) {
+            binding.cardViewCustomize = item
+            binding.executePendingBindings()
+        }
+
+        companion object {
+             fun from(parent: ViewGroup): ViewHolder {
+                val layoutInflater = LayoutInflater.from(parent.context)
+                 val binding = CardViewCustomizeFragmentBinding.inflate(layoutInflater, parent, false)
+                 return ViewHolder(binding)
+
+             }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.card_view_customize_fragment,parent,false)
-        return ViewHolder(view)
+        return ViewHolder.from(parent)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.image.setBackgroundResource(arrayColor[position].image)
-        holder.name.text = arrayColor[position].name
+        val item = getItem(position)
+        holder.bind(item)
     }
 
-    override fun getItemCount(): Int {
-       return arrayColor.size
+}
+
+class CustomizeDiffCallback(): DiffUtil.ItemCallback<FavoriteColorData>(){
+    override fun areItemsTheSame(p0: FavoriteColorData, p1: FavoriteColorData): Boolean {
+        return p0.name == p1.name
+    }
+
+    override fun areContentsTheSame(p0: FavoriteColorData, p1: FavoriteColorData): Boolean {
+        return p0 == p1
     }
 }

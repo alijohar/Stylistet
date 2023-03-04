@@ -15,6 +15,7 @@ import com.amorphteam.stylistet.databinding.FragmentCollectionBinding
 import com.amorphteam.stylistet.databinding.FragmentCustomizeDataBinding
 import com.amorphteam.stylistet.launcher.collection.CollectionData
 import com.amorphteam.stylistet.launcher.collection.CollectionRecyclerAdapter
+import com.amorphteam.stylistet.launcher.collection.collections
 
 class CustomizeDataFragment : Fragment() {
 
@@ -31,10 +32,12 @@ class CustomizeDataFragment : Fragment() {
 
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_customize_data,container,false)
 
+        val adapter = FavotiteColorRecyclerAdapter()
+        binding.recyclerView.adapter = adapter
+        adapter.submitList(ArrayList(favoriteColor))
         binding.recyclerView.apply {
             setHasFixedSize(true)
             layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
-            adapter = FavotiteColorRecyclerAdapter(ArrayList(favoriteColor))
         }
 
         binding.seekbarTrickle.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
