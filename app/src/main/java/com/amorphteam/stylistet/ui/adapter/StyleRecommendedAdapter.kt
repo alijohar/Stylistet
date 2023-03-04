@@ -2,64 +2,84 @@ package com.amorphteam.stylistet.ui.adapter
 
 import android.content.Context
 import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.amorphteam.stylistet.R
+import com.amorphteam.stylistet.databinding.ItemStyleRecommendedBinding
 import com.amorphteam.stylistet.model.ImgeWithTag
 import com.amorphteam.stylistet.ui.detail.DetailActivity
 import com.amorphteam.stylistet.util.LocalData
 
-class StyleRecommendedAdapter(private val context: Context, private val imageItems: ArrayList<ImgeWithTag>):
-    RecyclerView.Adapter<StyleRecommendedAdapter.ViewHolder>()  {
-    var likedCollections = ArrayList<Int>()
+class StyleRecommendedAdapter(val context: Context) :
+    ListAdapter<ImgeWithTag, StyleRecommendedAdapter.ViewHolder>(StyleRecommendedDiffCallback()) {
 
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_style_recommended, parent, false)
-        return ViewHolder(view)
+        return ViewHolder.from(parent)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.textView.text = imageItems[position].tag
-        holder.imageView.setImageResource(imageItems[position].image)
+        val item = getItem(position)
+        holder.bind(item, context)
 
-        holder.imageView.setOnClickListener {
-            val intent = Intent(context, DetailActivity::class.java)
-            intent.putExtra(LocalData.PASS_DATA, imageItems[position])
-            context.startActivity(intent)
+
+    }
+
+
+    class ViewHolder private constructor(private val binding: ItemStyleRecommendedBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        var likedCollections = ArrayList<Int>()
+
+        fun bind(
+            item: ImgeWithTag, context: Context
+        ) {
+            binding.recommendedItem = item
+            binding.executePendingBindings()
+
+            binding.itemImage.setOnClickListener {
+                val intent = Intent(context, DetailActivity::class.java)
+                intent.putExtra(LocalData.PASS_DATA, item)
+                context.startActivity(intent)
+            }
+
+            binding.like.setOnClickListener {
+                if (likedCollections.contains(position)) {
+                    likedCollections.remove(position)
+                    binding.like.setImageResource(R.drawable.like_detail)
+                } else {
+                    likedCollections.add(position)
+                    binding.like.setImageResource(R.drawable.heart_flat)
+
+                }
+            }
         }
 
-        holder.imageButton.setOnClickListener {
-            if (likedCollections.contains(position)){
-                likedCollections.remove(position)
-                holder.imageButton.setImageResource(R.drawable.heart_outline_flat)
-            }else{
-                likedCollections.add(position)
-                holder.imageButton.setImageResource(R.drawable.heart_flat)
+        companion object {
+            fun from(parent: ViewGroup): ViewHolder {
+                val layoutInflater = LayoutInflater.from(parent.context)
+                val binding = ItemStyleRecommendedBinding.inflate(layoutInflater, parent, false)
+                return ViewHolder(binding)
             }
         }
     }
 
-    override fun getItemCount(): Int {
-        return imageItems.size
+
+}
+
+class StyleRecommendedDiffCallback : DiffUtil.ItemCallback<ImgeWithTag>() {
+    override fun areItemsTheSame(oldItem: ImgeWithTag, newItem: ImgeWithTag): Boolean {
+        return oldItem.image == newItem.image
     }
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val textView = itemView.findViewById<TextView>(R.id.item_name)
-        val imageView = itemView.findViewById<ImageView>(R.id.item_image)
-        val imageButton = itemView.findViewById<ImageButton>(R.id.like)
-
-
+    override fun areContentsTheSame(oldItem: ImgeWithTag, newItem: ImgeWithTag): Boolean {
+        return oldItem == newItem
     }
-
-
 
 }

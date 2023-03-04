@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center"
-    android:paddingBottom="@dimen/activity_horizontal_margin"
-    android:orientation="vertical">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="recommendedItem"
+            type="com.amorphteam.stylistet.model.ImgeWithTag" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:paddingBottom="@dimen/activity_horizontal_margin"
+        android:orientation="vertical">
 
 
         <com.makeramen.roundedimageview.RoundedImageView
@@ -15,41 +23,40 @@
             android:layout_margin="@dimen/half_margin"
             app:riv_corner_radius="12dp"
             android:layout_height="wrap_content"
-            android:src="@drawable/a1"
+            app:recommendedImage="@{recommendedItem}"
             android:adjustViewBounds="true"
-            android:scaleType="centerCrop"
-            />
+            android:scaleType="centerCrop" />
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:paddingBottom="@dimen/half_margin">
-
-
-        <TextView
-            android:id="@+id/item_name"
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:textStyle="bold"
-            android:paddingRight="@dimen/activity_horizontal_margin"
-            android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:text="Rose" />
-
-        <ImageButton
-            android:id="@+id/like"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:src="@drawable/like_detail" />
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/half_margin">
 
 
+            <TextView
+                android:id="@+id/item_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:textStyle="bold"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                app:recommendedTitle="@{recommendedItem}" />
+
+            <ImageButton
+                android:id="@+id/like"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:src="@drawable/like_detail" />
+
+
+        </LinearLayout>
 
     </LinearLayout>
-
-</LinearLayout>
+</layout>
 

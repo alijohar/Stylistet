@@ -27,14 +27,12 @@ class ItemsDetailAdapter(private val context: Context):
 
 
 
-    class ViewHolder private constructor(val binding: ItemDetailBinding) : RecyclerView.ViewHolder(binding.root) {
+    class ViewHolder private constructor(private val binding: ItemDetailBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(
             item: ItemCollection
         ) {
-            binding.title.text = item.title
-            binding.price.text = item.price
-            binding.storeName.text = item.storeName
-            binding.image.setImageResource(item.image)
+            binding.item = item
+            binding.executePendingBindings()
         }
 
         companion object {

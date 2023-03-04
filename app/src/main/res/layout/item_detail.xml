@@ -35,7 +35,7 @@
                     android:scaleType="centerCrop"
                     app:riv_corner_radius_bottom_left="12dp"
                     app:riv_corner_radius_top_left="12dp"
-                    android:src="@drawable/a3" />
+                    app:itemImage="@{item}"/>
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -51,14 +51,14 @@
                         android:textStyle="bold"
                         android:layout_height="wrap_content"
                         android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                        android:text="Elastic Waist Pleated Palazzo Trousers" />
+                        app:itemTitle="@{item}"/>
 
                     <TextView
                         android:id="@+id/price"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                        android:text="23 $" />
+                        app:itemPrice="@{item}"/>
 
 
                     <LinearLayout
@@ -79,7 +79,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-                            android:text="Namshi Emirates store" />
+                            app:itemStoreName="@{item}" />
                     </LinearLayout>
 
 

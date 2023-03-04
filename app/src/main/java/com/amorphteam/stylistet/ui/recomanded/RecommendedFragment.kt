@@ -27,7 +27,8 @@ class RecommendedFragment : Fragment() {
 
         _binding = FragmentRecommendedBinding.inflate(inflater, container, false)
 
-        val styleRecommendedAdapter = StyleRecommendedAdapter(requireContext(), LocalData.getData())
+        val styleRecommendedAdapter = StyleRecommendedAdapter(requireContext())
+        styleRecommendedAdapter.submitList(LocalData.getData())
         val dimen_count = resources.getInteger(R.integer.columns_count)
         binding.recyclerView.setHasFixedSize(true)
         binding.recyclerView.layoutManager = StaggeredGridLayoutManager(dimen_count, StaggeredGridLayoutManager.VERTICAL)
