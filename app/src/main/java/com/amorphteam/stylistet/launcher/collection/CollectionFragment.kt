@@ -2,6 +2,7 @@ package com.amorphteam.stylistet.launcher.collection
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -33,35 +34,19 @@ class CollectionFragment : Fragment() {
 
         }
 
+        val adapter = CollectionRecyclerAdapter()
+        binding.recyclerView.adapter = adapter
+        adapter.submitList(ArrayList(collections))
         binding.recyclerView.apply {
             setHasFixedSize(true)
             layoutManager = StaggeredGridLayoutManager(3,StaggeredGridLayoutManager.VERTICAL)
-            adapter = CollectionRecyclerAdapter(ArrayList(collections))
         }
-
-
-
 
 
         return binding.root
     }
 
-    val collections = listOf(
-        CollectionData(R.drawable.collection1,"sam"),
-        CollectionData(R.drawable.collection2,"sam"),
-        CollectionData(R.drawable.collection3,"sam"),
-        CollectionData(R.drawable.collection4,"sam"),
-        CollectionData(R.drawable.collection5,"sam"),
-        CollectionData(R.drawable.collection6,"sam"),
-        CollectionData(R.drawable.collection7,"sam"),
-        CollectionData(R.drawable.collection8,"sam"),
-        CollectionData(R.drawable.collection9,"sam"),
-        CollectionData(R.drawable.collection1,"sam"),
-        CollectionData(R.drawable.collection2,"sam"),
-        CollectionData(R.drawable.collection3,"sam")
 
-
-    )
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(CollectionViewModel::class.java)
@@ -69,3 +54,17 @@ class CollectionFragment : Fragment() {
     }
 
 }
+val collections = listOf(
+    CollectionData(R.drawable.collection1,"sam"),
+    CollectionData(R.drawable.collection2,"sam"),
+    CollectionData(R.drawable.collection3,"sam"),
+    CollectionData(R.drawable.collection4,"sam"),
+    CollectionData(R.drawable.collection5,"sam"),
+    CollectionData(R.drawable.collection6,"sam"),
+    CollectionData(R.drawable.collection7,"sam"),
+    CollectionData(R.drawable.collection8,"sam"),
+    CollectionData(R.drawable.collection9,"sam"),
+    CollectionData(R.drawable.collection1,"sam"),
+    CollectionData(R.drawable.collection2,"sam"),
+    CollectionData(R.drawable.collection3,"sam")
+)

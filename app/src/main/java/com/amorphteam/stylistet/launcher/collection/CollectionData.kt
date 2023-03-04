@@ -1,8 +1,9 @@
 package com.amorphteam.stylistet.launcher.collection
 
-import android.media.Image
+import com.amorphteam.stylistet.R
+
 
 data class CollectionData(
-    val image: Int,
-    val name: String
+    var image: Int,
+    var name: String
 )
