@@ -14,11 +14,12 @@
     <dimen name="_18sp">18sp</dimen>
     <dimen name="_18dp">18dp</dimen>
     <dimen name="_20dp">20dp</dimen>
-    <dimen name="_25dp">25dp</dimen>
-    <dimen name="_50dp">50dp</dimen>
-    <dimen name="_44dp">44dp</dimen>
-    <dimen name="_100dp">100dp</dimen>
-    <dimen name="_30dp">30dp</dimen>
     <dimen name="_20sp">20sp</dimen>
+    <dimen name="_25dp">25dp</dimen>
+    <dimen name="_30dp">30dp</dimen>
+    <dimen name="_44dp">44dp</dimen>
+    <dimen name="_50dp">50dp</dimen>
+    <dimen name="_100dp">100dp</dimen>
+    <dimen name="_200dp">200dp</dimen>
     <dimen name="_217dp">217dp</dimen>
 </resources>

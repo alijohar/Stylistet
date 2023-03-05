@@ -8,7 +8,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SeekBar
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.amorphteam.stylistet.R
 import com.amorphteam.stylistet.databinding.FragmentCollectionBinding
@@ -32,13 +34,19 @@ class CustomizeDataFragment : Fragment() {
 
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_customize_data,container,false)
 
-        val adapter = FavotiteColorRecyclerAdapter()
+        val adapter = FavotiteColorRecyclerAdapter(FavoriteColorListener {
+                ColorId ->  Toast.makeText(context,"${ColorId}", Toast.LENGTH_SHORT).show()
+        })
+
         binding.recyclerView.adapter = adapter
         adapter.submitList(ArrayList(favoriteColor))
+
+
         binding.recyclerView.apply {
             setHasFixedSize(true)
             layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         }
+
 
         binding.seekbarTrickle.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
@@ -54,8 +62,7 @@ class CustomizeDataFragment : Fragment() {
                     3 -> binding.trickleRateValue.text = getString(R.string.budget3)
                     4 -> binding.trickleRateValue.text = getString(R.string.budget4)
                 }
-
-
+                
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) { }
@@ -65,16 +72,15 @@ class CustomizeDataFragment : Fragment() {
         })
 
 
-
         return binding.root
     }
 
     val favoriteColor = listOf(
-        FavoriteColorData(R.drawable.nature_color,"الطبيعة"),
-        FavoriteColorData(R.drawable.pastel_color,"باستيلي"),
-        FavoriteColorData(R.drawable.bright_color,"ساطعة"),
-        FavoriteColorData(R.drawable.dark_color,"غامقة"),
-        FavoriteColorData(R.drawable.metallic_color,"متاليك")
+        FavoriteColorData(1,R.drawable.nature_color,"الطبيعة"),
+        FavoriteColorData(2,R.drawable.pastel_color,"باستيلي"),
+        FavoriteColorData(3,R.drawable.bright_color,"ساطعة"),
+        FavoriteColorData(4,R.drawable.dark_color,"غامقة"),
+        FavoriteColorData(5,R.drawable.metallic_color,"متاليك")
         )
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

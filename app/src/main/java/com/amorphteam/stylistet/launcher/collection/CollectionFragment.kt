@@ -7,8 +7,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
@@ -34,13 +36,16 @@ class CollectionFragment : Fragment() {
 
         }
 
-        val adapter = CollectionRecyclerAdapter()
+        val manager = GridLayoutManager(activity, 3)
+        binding.recyclerView.layoutManager = manager
+
+        val adapter = CollectionRecyclerAdapter(CollectionListener {
+            collectionId ->  Toast.makeText(context, "${collectionId}", Toast.LENGTH_SHORT).show()
+        })
+
         binding.recyclerView.adapter = adapter
         adapter.submitList(ArrayList(collections))
-        binding.recyclerView.apply {
-            setHasFixedSize(true)
-            layoutManager = StaggeredGridLayoutManager(3,StaggeredGridLayoutManager.VERTICAL)
-        }
+
 
 
         return binding.root
@@ -55,16 +60,16 @@ class CollectionFragment : Fragment() {
 
 }
 val collections = listOf(
-    CollectionData(R.drawable.collection1,"sam"),
-    CollectionData(R.drawable.collection2,"sam"),
-    CollectionData(R.drawable.collection3,"sam"),
-    CollectionData(R.drawable.collection4,"sam"),
-    CollectionData(R.drawable.collection5,"sam"),
-    CollectionData(R.drawable.collection6,"sam"),
-    CollectionData(R.drawable.collection7,"sam"),
-    CollectionData(R.drawable.collection8,"sam"),
-    CollectionData(R.drawable.collection9,"sam"),
-    CollectionData(R.drawable.collection1,"sam"),
-    CollectionData(R.drawable.collection2,"sam"),
-    CollectionData(R.drawable.collection3,"sam")
+    CollectionData(1,R.drawable.collection1,"sam1"),
+    CollectionData(2,R.drawable.collection2,"sam2"),
+    CollectionData(3,R.drawable.collection3,"sam3"),
+    CollectionData(4,R.drawable.collection4,"sam4"),
+    CollectionData(5,R.drawable.collection5,"sam5"),
+    CollectionData(6,R.drawable.collection6,"sam6"),
+    CollectionData(7,R.drawable.collection7,"sam7"),
+    CollectionData(8,R.drawable.collection8,"sam8"),
+    CollectionData(9,R.drawable.collection9,"sam9"),
+    CollectionData(10,R.drawable.collection1,"sam10"),
+    CollectionData(11,R.drawable.collection2,"sam11"),
+    CollectionData(12,R.drawable.collection3,"sam12")
 )

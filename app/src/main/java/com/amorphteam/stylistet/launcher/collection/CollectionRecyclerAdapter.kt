@@ -1,23 +1,21 @@
 package com.amorphteam.stylistet.launcher.collection
 
-import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.amorphteam.stylistet.databinding.CardViewCollectionFragmentBinding
 
-class CollectionRecyclerAdapter(): ListAdapter<CollectionData, CollectionRecyclerAdapter.ViewHolder>(CollectionDiffCallback()){
+class CollectionRecyclerAdapter(val clickListener: CollectionListener): ListAdapter<CollectionData, CollectionRecyclerAdapter.ViewHolder>(CollectionDiffCallback()){
 
     class ViewHolder private constructor(val binding: CardViewCollectionFragmentBinding): RecyclerView.ViewHolder(binding.root){
 
-        fun bind(item: CollectionData) {
+        fun bind(item: CollectionData, clickListener: CollectionListener) {
             binding.cardViewCollection = item
+            binding.clickListener = clickListener
             binding.executePendingBindings()
+
         }
 
         companion object {
@@ -39,17 +37,23 @@ class CollectionRecyclerAdapter(): ListAdapter<CollectionData, CollectionRecycle
         //p0 = holder
         //p1 = position
         val item = getItem(p1)
-        p0.bind(item)
+        p0.bind(item, clickListener)
     }
 
 }
 
 class CollectionDiffCallback : DiffUtil.ItemCallback<CollectionData>() {
     override fun areItemsTheSame(p0: CollectionData, p1: CollectionData): Boolean {
-        return p0.image == p1.image
+        return p0.id == p1.id
     }
 
     override fun areContentsTheSame(p0: CollectionData, p1: CollectionData): Boolean {
         return p0 == p1
     }
+}
+
+class CollectionListener(val clicklistener: (collectionId: Int) -> Unit){
+
+    fun onClick(collection: CollectionData) =  clicklistener(collection.id)
+
 }
