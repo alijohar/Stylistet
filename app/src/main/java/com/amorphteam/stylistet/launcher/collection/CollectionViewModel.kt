@@ -5,7 +5,6 @@ import com.amorphteam.stylistet.R
 
 class CollectionViewModel : ViewModel() {
 
-
     val collections = listOf(
         CollectionData(1, R.drawable.collection1,"sam1"),
         CollectionData(2, R.drawable.collection2,"sam2"),

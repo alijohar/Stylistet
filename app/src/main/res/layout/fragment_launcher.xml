@@ -4,6 +4,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="launcherView"
+            type="com.amorphteam.stylistet.launcher.launcher.LauncherView" />
+    </data>
 
 <LinearLayout
     android:id="@+id/launcher_main_layout"
@@ -11,7 +16,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".launcher.launcher.LauncherFragment"
-    android:background="@drawable/launcher_two"
+    android:background="@{Integer.valueOf(launcherView.launcherMainLayout)}"
     android:scaleType="centerCrop"
 
     >
@@ -33,7 +38,10 @@
                 android:padding="@dimen/_8dp"
                 android:text="@string/launcher_title"
                 android:textSize="@dimen/_20sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:textColor="@{Integer.valueOf(launcherView.launcherTitle)}"
+
+                />
 
             <TextView
                 android:id="@+id/launcher_title_two"
@@ -43,7 +51,9 @@
                 android:gravity="center"
                 android:padding="@dimen/_4dp"
                 android:text="@string/launcher_title_two"
-                android:textSize="@dimen/_16sp" />
+                android:textSize="@dimen/_16sp"
+                app:textColor="@{Integer.valueOf(launcherView.launcherTitleTwo)}"
+                />
 </LinearLayout>
 
     <LinearLayout
@@ -62,7 +72,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center"
             android:layout_margin="@dimen/_2dp"
-            android:backgroundTint="@color/black"
+            android:backgroundTint="@{Integer.valueOf(launcherView.launcherStartNow)}"
             android:gravity="center"
             android:padding="@dimen/_8dp"
             android:singleLine="true"
@@ -78,7 +88,7 @@
             android:gravity="center"
             android:padding="@dimen/_4dp"
             android:text="@string/launcher_you_have_an_account"
-            android:textColor="@color/white"
+            app:textColor="@{Integer.valueOf(launcherView.launcherYouHaveAnAccount)}"
             android:textSize="@dimen/_16sp" />
 
         <TextView
@@ -90,7 +100,7 @@
             android:gravity="center"
             android:padding="@dimen/_4dp"
             android:text="@string/launcher_sign_in"
-            android:textColor="@color/white"
+            app:textColor="@{Integer.valueOf(launcherView.launcherSignIn)}"
             android:textSize="@dimen/_18sp"
             android:textStyle="bold" />
     </LinearLayout>

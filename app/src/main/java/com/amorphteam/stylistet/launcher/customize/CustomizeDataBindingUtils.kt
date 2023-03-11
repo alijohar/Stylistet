@@ -20,7 +20,6 @@ fun TextView.setCustomizeTextColor(item: FavoriteColorData?){
         text = item.name
     }
 }
-
 @BindingAdapter("android:onProgressChanged")
 fun setListener(view: SeekBar?, listener: OnProgressChanged?) {
     setListener(view!!,  listener!!)

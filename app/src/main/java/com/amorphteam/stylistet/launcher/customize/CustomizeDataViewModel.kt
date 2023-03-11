@@ -2,7 +2,9 @@ package com.amorphteam.stylistet.launcher.customize
 
 import android.provider.Settings.Secure.getString
 import android.widget.SeekBar
+import androidx.databinding.BindingAdapter
 import androidx.databinding.ObservableField
+import androidx.databinding.adapters.SeekBarBindingAdapter
 import androidx.lifecycle.ViewModel
 import com.amorphteam.stylistet.R
 
@@ -19,10 +21,13 @@ class CustomizeDataViewModel : ViewModel() {
 
 }
 
+
 class SeekBarModel {
     var seekBarValue = ObservableField("$")
     var trickleRateValue = ObservableField("$9")
+
     fun onValueChanged(seekBar: SeekBar?, progresValue: Int, fromUser: Boolean) {
+
         when(progresValue){
             1 -> seekBarValue.set("$")
             2 -> seekBarValue.set("$$")
