@@ -12,5 +12,22 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+
     </style>
+
+    <style name="AppTheme" parent="Theme.Stylistet">
+        <item name="android:textViewStyle">@style/TajawalTextViewStyle</item>
+        <item name="android:buttonStyle">@style/TajawalButtonStyle</item>
+    </style>
+
+    <style name="TajawalTextViewStyle" parent="android:Widget.TextView">
+        <item name="android:fontFamily">@font/tajawal_regular</item>
+    </style>
+
+    <style name="TajawalButtonStyle" parent="android:Widget.Holo.Button">
+        <item name="fontFamily">@font/tajawal_bold</item>
+    </style>
+
+
+
 </resources>
