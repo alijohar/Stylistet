@@ -13,10 +13,6 @@ import com.amorphteam.stylistet.databinding.FragmentLoginBinding
 
 class LoginFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = LoginFragment()
-    }
-
     private lateinit var binding: FragmentLoginBinding
     private lateinit var viewModel: LoginViewModel
 
@@ -24,6 +20,8 @@ class LoginFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        viewModel = ViewModelProvider(this)[LoginViewModel::class.java]
+
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_login,container,false)
 
         binding.next.setOnClickListener {view: View ->
@@ -31,12 +29,6 @@ class LoginFragment : Fragment() {
         }
 
         return binding.root
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
-        // TODO: Use the ViewModel
     }
 
 }

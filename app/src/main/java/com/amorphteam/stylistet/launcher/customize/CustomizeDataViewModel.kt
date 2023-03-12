@@ -10,6 +10,8 @@ import com.amorphteam.stylistet.R
 
 
 class CustomizeDataViewModel : ViewModel() {
+    var seekBarValue = ObservableField("$")
+    var trickleRateValue = ObservableField("$9")
 
     val favoriteColor = listOf(
         FavoriteColorData(1, R.drawable.nature_color,"الطبيعة"),
@@ -18,14 +20,6 @@ class CustomizeDataViewModel : ViewModel() {
         FavoriteColorData(4, R.drawable.dark_color,"غامقة"),
         FavoriteColorData(5, R.drawable.metallic_color,"متاليك")
     )
-
-}
-
-
-class SeekBarModel {
-    var seekBarValue = ObservableField("$")
-    var trickleRateValue = ObservableField("$9")
-
     fun onValueChanged(seekBar: SeekBar?, progresValue: Int, fromUser: Boolean) {
 
         when(progresValue){
@@ -43,3 +37,5 @@ class SeekBarModel {
 
     }
 }
+
+

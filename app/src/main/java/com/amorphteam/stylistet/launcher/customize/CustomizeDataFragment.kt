@@ -15,12 +15,8 @@ import com.amorphteam.stylistet.databinding.FragmentCustomizeDataBinding
 
 class CustomizeDataFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = CustomizeDataFragment()
-    }
     private lateinit var binding: FragmentCustomizeDataBinding
     private lateinit var viewModel: CustomizeDataViewModel
-    private  var  mySeekBarModel: SeekBarModel = SeekBarModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,7 +26,8 @@ class CustomizeDataFragment : Fragment() {
         viewModel = ViewModelProvider(this)[CustomizeDataViewModel::class.java]
 
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_customize_data,container,false)
-        binding.customizeDataViewModel = mySeekBarModel
+        binding.viewModel = viewModel
+
         val adapter = FavotiteColorRecyclerAdapter(FavoriteColorListener {
                 ColorId ->  Toast.makeText(context,"${ColorId}", Toast.LENGTH_SHORT).show()
         })

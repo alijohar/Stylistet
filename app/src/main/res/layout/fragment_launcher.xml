@@ -6,27 +6,36 @@
     xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable
-            name="launcherView"
-            type="com.amorphteam.stylistet.launcher.launcher.LauncherView" />
+            name="viewModel"
+            type="com.amorphteam.stylistet.launcher.launcher.LauncherViewModel" />
     </data>
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".launcher.launcher.LauncherFragment"
+
+    >
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@{Integer.valueOf(viewModel.launcherMainLayout)}"
+        />
+
 
 <LinearLayout
     android:id="@+id/launcher_main_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".launcher.launcher.LauncherFragment"
-    android:background="@{Integer.valueOf(launcherView.launcherMainLayout)}"
-    android:scaleType="centerCrop"
-
     >
 
         <LinearLayout
-         android:layout_width="match_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="vertical"
-            android:layout_marginTop="@dimen/_30dp"
+        android:layout_marginTop="@dimen/_30dp"
     >
 
             <TextView
@@ -39,7 +48,7 @@
                 android:text="@string/launcher_title"
                 android:textSize="@dimen/_20sp"
                 android:textStyle="bold"
-                app:textColor="@{Integer.valueOf(launcherView.launcherTitle)}"
+                app:textColor="@{Integer.valueOf(viewModel.launcherTitle)}"
 
                 />
 
@@ -52,7 +61,7 @@
                 android:padding="@dimen/_4dp"
                 android:text="@string/launcher_title_two"
                 android:textSize="@dimen/_16sp"
-                app:textColor="@{Integer.valueOf(launcherView.launcherTitleTwo)}"
+                app:textColor="@{Integer.valueOf(viewModel.launcherTitleTwo)}"
                 />
 </LinearLayout>
 
@@ -72,7 +81,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center"
             android:layout_margin="@dimen/_2dp"
-            android:backgroundTint="@{Integer.valueOf(launcherView.launcherStartNow)}"
+            android:backgroundTint="@{Integer.valueOf(viewModel.launcherStartNow)}"
             android:gravity="center"
             android:padding="@dimen/_8dp"
             android:singleLine="true"
@@ -88,7 +97,7 @@
             android:gravity="center"
             android:padding="@dimen/_4dp"
             android:text="@string/launcher_you_have_an_account"
-            app:textColor="@{Integer.valueOf(launcherView.launcherYouHaveAnAccount)}"
+            app:textColor="@{Integer.valueOf(viewModel.launcherYouHaveAnAccount)}"
             android:textSize="@dimen/_16sp" />
 
         <TextView
@@ -100,11 +109,11 @@
             android:gravity="center"
             android:padding="@dimen/_4dp"
             android:text="@string/launcher_sign_in"
-            app:textColor="@{Integer.valueOf(launcherView.launcherSignIn)}"
+            app:textColor="@{Integer.valueOf(viewModel.launcherSignIn)}"
             android:textSize="@dimen/_18sp"
             android:textStyle="bold" />
     </LinearLayout>
 
 </LinearLayout>
-
+</FrameLayout>
 </layout>

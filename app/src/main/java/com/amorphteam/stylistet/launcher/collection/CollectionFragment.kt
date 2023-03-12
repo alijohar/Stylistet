@@ -19,9 +19,6 @@ import com.amorphteam.stylistet.databinding.FragmentCollectionBinding
 
 class CollectionFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = CollectionFragment()
-    }
     private lateinit var binding: FragmentCollectionBinding
     private lateinit var viewModel: CollectionViewModel
 
@@ -29,6 +26,7 @@ class CollectionFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         viewModel = ViewModelProvider(this)[CollectionViewModel::class.java]
 
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_collection,container,false)
@@ -45,8 +43,9 @@ class CollectionFragment : Fragment() {
             collectionId ->  Toast.makeText(context, "${collectionId}", Toast.LENGTH_SHORT).show()
         })
 
-        binding.recyclerView.adapter = adapter
+
         adapter.submitList(ArrayList(viewModel.collections))
+        binding.recyclerView.adapter = adapter
 
 
         return binding.root

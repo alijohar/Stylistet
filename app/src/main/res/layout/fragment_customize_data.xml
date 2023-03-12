@@ -4,8 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable
-            name="CustomizeDataViewModel"
-            type="com.amorphteam.stylistet.launcher.customize.SeekBarModel" />
+            name="viewModel"
+            type="com.amorphteam.stylistet.launcher.customize.CustomizeDataViewModel" />
     </data>
 
     <LinearLayout
@@ -80,7 +80,7 @@
                 android:layout_marginBottom="@dimen/_10dp"
                 android:layout_marginStart="@dimen/_12dp"
                 android:textStyle="bold"
-                android:text="@{String.valueOf(CustomizeDataViewModel.trickleRateValue)}"
+                android:text="@{viewModel.trickleRateValue}"
                 />
 
             <TextView
@@ -94,7 +94,7 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/_12sp"
                 android:textStyle="bold"
-                android:text="@{String.valueOf(CustomizeDataViewModel.seekBarValue)}"
+                android:text="@{viewModel.seekBarValue}"
 
                 />
 
@@ -110,7 +110,7 @@
                 android:thumb="@drawable/seekbar_thumb"
                 android:thumbOffset="0dp"
                 tools:ignore="UnusedAttribute"
-                android:onProgressChanged="@{CustomizeDataViewModel.onValueChanged}"
+                android:onProgressChanged="@{viewModel.onValueChanged}"
                 />
 
 

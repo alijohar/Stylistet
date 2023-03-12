@@ -6,7 +6,7 @@
     >
     <data>
         <variable
-            name="CardViewCollection"
+            name="cardViewCollection"
             type="com.amorphteam.stylistet.launcher.collection.CollectionData" />
 
         <variable
@@ -15,29 +15,26 @@
     </data>
 
 <androidx.cardview.widget.CardView
-    android:layout_width="match_parent"
-    android:layout_height="@dimen/_200dp"
-    android:layout_marginTop="@dimen/_12dp"
-    android:layout_marginLeft="@dimen/_16dp"
-    android:layout_marginRight="@dimen/_16dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_10dp"
     android:id="@+id/card_pertanyaan"
     card_view:cardBackgroundColor="#FFFF"
     card_view:cardCornerRadius="@dimen/_8dp"
     android:foreground="?selectableItemBackground"
-    android:onClick="@{() -> clickListener.onClick(CardViewCollection)}"
+    android:onClick="@{() -> clickListener.onClick(cardViewCollection)}"
   >
 
     <RelativeLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content" >
 
         <ImageView
             android:id="@+id/image_collection"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            card_view:cardCornerRadius="@dimen/_8dp"
             android:scaleType="centerCrop"
-            app:imageCollection="@{CardViewCollection}"
+            app:imageCollection="@{cardViewCollection}"
 
             />
 
@@ -45,10 +42,9 @@
             android:id="@+id/text_collection"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            card_view:cardCornerRadius="@dimen/_8dp"
             android:visibility="invisible"
             android:scaleType="centerCrop"
-            app:nameCollection="@{CardViewCollection}"
+            app:nameCollection="@{cardViewCollection}"
 
             />
 
