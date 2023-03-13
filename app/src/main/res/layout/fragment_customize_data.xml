@@ -77,41 +77,25 @@
                 android:layout_marginStart="@dimen/_12dp"
                 android:layout_marginBottom="@dimen/_10dp"
                 android:gravity="center"
-                android:text="@{viewModel.trickleRateValue}"
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_12sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/trickle_indicator"
-                android:layout_width="@dimen/_50dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/trickle_rate_value"
-                android:layout_marginBottom="@dimen/_5dp"
-                android:gravity="center"
-                android:text="@{viewModel.seekBarValue}"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_12sp"
-                android:textStyle="bold"
-                android:visibility="gone"
-
-                />
 
             <com.google.android.material.slider.RangeSlider
                 android:id="@+id/range_slider_view"
                 style="@style/Widget.App.Slider"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/trickle_indicator"
+                android:layout_below="@+id/trickle_rate_value"
+                android:contentDescription="@string/budget2"
                 android:stepSize="10.0"
                 android:valueFrom="0.0"
                 android:valueTo="30.0"
                 app:labelBehavior="visible"
                 app:values="@array/initial_slider_values" />
-
-
+            
         </RelativeLayout>
 
         <LinearLayout

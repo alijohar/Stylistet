@@ -38,25 +38,25 @@
         <item name="labelStyle">@style/Widget.App.Tooltip</item>
         <item name="trackColorInactive">@color/gray</item>
         <item name="trackColorActive">@color/seekbar</item>
+        <item name="trackHeight">@dimen/_2dp</item>
+        <item name="haloRadius">@dimen/_4dp</item>
     </style>
 
     <style name="ThemeOverlay.App.Slider" parent="Widget.App.Slider">
         <item name="colorPrimary">@color/seekbar</item>
         <item name="colorOnPrimary">@color/black</item>
         <item name="colorOnSurface">@color/seekbar</item>
-
     </style>
 
     <style name="Widget.App.Tooltip" parent="Widget.Material3.Tooltip">
         <item name="android:textAppearance">@style/TextAppearance.App.Tooltip</item>
         <item name="backgroundTint">@color/white</item>
-
     </style>
 
     <style name="TextAppearance.App.Tooltip" parent="TextAppearance.Material3.BodySmall">
         <item name="android:textColor">@color/black</item>
-        <item name="fontFamily">@font/tajawal_medium</item>
-        <item name="android:fontFamily">@font/tajawal_medium</item>
+        <item name="fontFamily">@font/tajawal_bold</item>
+        <item name="android:fontFamily">@font/tajawal_bold</item>
 
     </style>
 

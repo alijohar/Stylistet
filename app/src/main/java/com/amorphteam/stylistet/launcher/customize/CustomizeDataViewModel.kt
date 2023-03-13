@@ -20,13 +20,7 @@ class CustomizeDataViewModel : ViewModel() {
     val rangeSlider: LiveData<RangeSlider>
         get() = _rangeSlider
 
-    init {
 
-    }
-
-
-    var seekBarValue = ObservableField("$")
-    var trickleRateValue = ObservableField("$9")
 
     val favoriteColor = listOf(
         FavoriteColorData(1, R.drawable.nature_color, "الطبيعة"),
@@ -36,22 +30,9 @@ class CustomizeDataViewModel : ViewModel() {
         FavoriteColorData(5, R.drawable.metallic_color, "متاليك")
     )
 
-    fun onValueChanged(seekBar: RangeSlider.OnSliderTouchListener) {
 
-//        when(progresValue){
-//            1 -> seekBarValue.set("$")
-//            2 -> seekBarValue.set("$$")
-//            3 -> seekBarValue.set("$$$")
-//            4 -> seekBarValue.set("$$$$")
-//        }
-//        when(progresValue){
-//            1 -> trickleRateValue.set("$9")
-//            2 -> trickleRateValue.set("$99 _ $9")
-//            3 -> trickleRateValue.set("$999 _ $9")
-//            4 -> trickleRateValue.set("$9999 _ $9")
-//        }
 
     }
-}
+
 
 

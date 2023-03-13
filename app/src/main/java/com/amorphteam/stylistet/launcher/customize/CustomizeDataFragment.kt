@@ -1,6 +1,5 @@
 package com.amorphteam.stylistet.launcher.customize
 
-import android.graphics.Rect
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.util.Log
@@ -10,14 +9,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.amorphteam.stylistet.R
 import com.amorphteam.stylistet.databinding.FragmentCustomizeDataBinding
 import com.google.android.material.slider.RangeSlider
 import java.lang.String.format
-import java.text.NumberFormat
-import java.util.*
 import kotlin.collections.ArrayList
 
 class CustomizeDataFragment : Fragment() {
@@ -50,39 +46,57 @@ class CustomizeDataFragment : Fragment() {
         }
 
 
+
         binding.rangeSliderView.addOnSliderTouchListener(object :
             RangeSlider.OnSliderTouchListener {
             override fun onStartTrackingTouch(slider: RangeSlider) {
-                Log.i("sam1", "$slider")
+
             }
 
             override fun onStopTrackingTouch(slider: RangeSlider) {
                 // Responds to when slider's touch event is being stopped
-                Log.i("sam2", "$slider")
             }
         })
 
+
         binding.rangeSliderView.addOnChangeListener { rangeSlider, value, fromUser ->
 
-            when (value) {
-                0.0.toFloat() -> {
-                    binding.trickleRateValue.text = "$9"
-                }
+            val arrayValue = binding.rangeSliderView.values
 
-                10.0.toFloat() -> {
-                    binding.trickleRateValue.text = "$99 _ $9"
-                }
 
-                20.0.toFloat() -> {
-                    binding.trickleRateValue.text = "$999 _ $9"
-                }
+            if (arrayValue.contains(0.0.toFloat()) && arrayValue.contains(10.0.toFloat())) {
+                binding.trickleRateValue.text = "$99 _ $9"
 
-                30.0.toFloat() -> {
-                    binding.trickleRateValue.text = "$9999 _ $9"
-                }
+            } else if (arrayValue.contains(0.0.toFloat()) && arrayValue.contains(20.0.toFloat())) {
+                binding.trickleRateValue.text = "$999 _ $9"
+
+            } else if (arrayValue.contains(0.0.toFloat()) && arrayValue.contains(30.0.toFloat())) {
+                binding.trickleRateValue.text = "$9999 _ $9"
+
+            } else if (arrayValue.contains(10.0.toFloat()) && arrayValue.contains(20.0.toFloat())) {
+                binding.trickleRateValue.text = "$999 _ $99"
+
+            } else if (arrayValue.contains(10.0.toFloat()) && arrayValue.contains(30.0.toFloat())) {
+                binding.trickleRateValue.text = "$9999 _ $99"
+
+            } else if (arrayValue.contains(20.0.toFloat()) && arrayValue.contains(30.0.toFloat())) {
+                binding.trickleRateValue.text = "$9999 _ $99"
+
+            } else if (arrayValue.contains(30.0.toFloat()) && arrayValue.contains(30.0.toFloat())) {
+                binding.trickleRateValue.text = "$9999"
+
+            } else if (arrayValue.contains(20.0.toFloat()) && arrayValue.contains(20.0.toFloat())) {
+                binding.trickleRateValue.text = "$999"
+
+            } else if (arrayValue.contains(10.0.toFloat()) && arrayValue.contains(10.0.toFloat())) {
+                binding.trickleRateValue.text = "$99"
+
+            } else if (arrayValue.contains(0.0.toFloat()) && arrayValue.contains(0.0.toFloat())) {
+                binding.trickleRateValue.text = "$9"
+
             }
-        }
 
+        }
 
         binding.rangeSliderView.setLabelFormatter { value: Float ->
             when (value) {
