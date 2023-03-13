@@ -12,9 +12,12 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="sliderStyle">@style/Widget.App.Slider</item>
 
     </style>
 
+
+    <!-- Text theme. -->
     <style name="AppTheme" parent="Theme.Stylistet">
         <item name="android:textViewStyle">@style/TajawalTextViewStyle</item>
         <item name="android:buttonStyle">@style/TajawalButtonStyle</item>
@@ -28,6 +31,34 @@
         <item name="fontFamily">@font/tajawal_bold</item>
     </style>
 
+
+    <!-- Slider theme. -->
+    <style name="Widget.App.Slider" parent="Widget.Material3.Slider">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Slider</item>
+        <item name="labelStyle">@style/Widget.App.Tooltip</item>
+        <item name="trackColorInactive">@color/gray</item>
+        <item name="trackColorActive">@color/seekbar</item>
+    </style>
+
+    <style name="ThemeOverlay.App.Slider" parent="Widget.App.Slider">
+        <item name="colorPrimary">@color/seekbar</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorOnSurface">@color/seekbar</item>
+
+    </style>
+
+    <style name="Widget.App.Tooltip" parent="Widget.Material3.Tooltip">
+        <item name="android:textAppearance">@style/TextAppearance.App.Tooltip</item>
+        <item name="backgroundTint">@color/white</item>
+
+    </style>
+
+    <style name="TextAppearance.App.Tooltip" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:textColor">@color/black</item>
+        <item name="fontFamily">@font/tajawal_medium</item>
+        <item name="android:fontFamily">@font/tajawal_medium</item>
+
+    </style>
 
 
 </resources>

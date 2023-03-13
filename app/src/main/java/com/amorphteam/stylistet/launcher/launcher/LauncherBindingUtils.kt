@@ -18,11 +18,11 @@ fun setTextColor(view: TextView, color: Int?) {
 }
 
 @BindingAdapter("android:background")
-    fun setBackgroundResource(view: LinearLayout, back: Int?){
-        view.setBackgroundResource(back!!)
+fun setBackgroundResource(view: LinearLayout, back: Int?) {
+    view.setBackgroundResource(back!!)
 }
 
 @BindingAdapter("android:src")
-fun setImageResource(view: ImageView, res: Int?){
+fun setImageResource(view: ImageView, res: Int?) {
     view.setImageResource(res!!)
 }

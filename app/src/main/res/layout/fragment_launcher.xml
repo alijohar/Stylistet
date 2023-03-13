@@ -1,119 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
     <data>
         <variable
             name="viewModel"
             type="com.amorphteam.stylistet.launcher.launcher.LauncherViewModel" />
     </data>
-<FrameLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".launcher.launcher.LauncherFragment"
 
-    >
-    <ImageView
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:src="@{Integer.valueOf(viewModel.launcherMainLayout)}"
-        />
+        tools:context=".launcher.launcher.LauncherFragment">
 
-
-<LinearLayout
-    android:id="@+id/launcher_main_layout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@{Integer.valueOf(viewModel.launcherMainLayout)}" />
 
         <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:layout_marginTop="@dimen/_30dp"
-    >
+            android:id="@+id/launcher_main_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/launcher_title"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_2dp"
-                android:gravity="center"
-                android:padding="@dimen/_8dp"
-                android:text="@string/launcher_title"
-                android:textSize="@dimen/_20sp"
-                android:textStyle="bold"
-                app:textColor="@{Integer.valueOf(viewModel.launcherTitle)}"
+                android:layout_marginTop="@dimen/_30dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-                />
+                <TextView
+                    android:id="@+id/launcher_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_2dp"
+                    android:gravity="center"
+                    android:padding="@dimen/_8dp"
+                    android:text="@string/launcher_title"
+                    android:textSize="@dimen/_20sp"
+                    android:textStyle="bold"
+                    app:textColor="@{Integer.valueOf(viewModel.launcherTitle)}" />
 
-            <TextView
-                android:id="@+id/launcher_title_two"
+                <TextView
+                    android:id="@+id/launcher_title_two"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_2dp"
+                    android:gravity="center"
+                    android:padding="@dimen/_4dp"
+                    android:text="@string/launcher_title_two"
+                    android:textSize="@dimen/_16sp"
+                    app:textColor="@{Integer.valueOf(viewModel.launcherTitleTwo)}" />
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_2dp"
-                android:gravity="center"
-                android:padding="@dimen/_4dp"
-                android:text="@string/launcher_title_two"
-                android:textSize="@dimen/_16sp"
-                app:textColor="@{Integer.valueOf(viewModel.launcherTitleTwo)}"
-                />
-</LinearLayout>
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="@dimen/_30dp"
+                android:layout_weight="1"
+                android:gravity="bottom"
+                android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:layout_gravity="bottom"
-        android:gravity="bottom"
-        android:layout_marginBottom="@dimen/_30dp"
-        >
+                <Button
+                    android:id="@+id/launcher_start_now"
+                    android:layout_width="@dimen/_217dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center"
+                    android:layout_margin="@dimen/_2dp"
+                    android:backgroundTint="@{Integer.valueOf(viewModel.launcherStartNow)}"
+                    android:gravity="center"
+                    android:padding="@dimen/_8dp"
+                    android:singleLine="true"
+                    android:text="@string/launcher_start_now"
+                    android:textSize="@dimen/_16sp"
+                    android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/launcher_start_now"
-            android:layout_width="@dimen/_217dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center"
-            android:layout_margin="@dimen/_2dp"
-            android:backgroundTint="@{Integer.valueOf(viewModel.launcherStartNow)}"
-            android:gravity="center"
-            android:padding="@dimen/_8dp"
-            android:singleLine="true"
-            android:text="@string/launcher_start_now"
-            android:textSize="@dimen/_16sp"
-            android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/launcher_you_have_an_account"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_2dp"
+                    android:gravity="center"
+                    android:padding="@dimen/_4dp"
+                    android:text="@string/launcher_you_have_an_account"
+                    android:textSize="@dimen/_16sp"
+                    app:textColor="@{Integer.valueOf(viewModel.launcherYouHaveAnAccount)}" />
 
-        <TextView
-            android:id="@+id/launcher_you_have_an_account"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_2dp"
-            android:gravity="center"
-            android:padding="@dimen/_4dp"
-            android:text="@string/launcher_you_have_an_account"
-            app:textColor="@{Integer.valueOf(viewModel.launcherYouHaveAnAccount)}"
-            android:textSize="@dimen/_16sp" />
+                <TextView
+                    android:id="@+id/launcher_sign_in"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_2dp"
+                    android:layout_marginEnd="@dimen/_8dp"
+                    android:gravity="center"
+                    android:padding="@dimen/_4dp"
+                    android:text="@string/launcher_sign_in"
+                    android:textSize="@dimen/_18sp"
+                    android:textStyle="bold"
+                    app:textColor="@{Integer.valueOf(viewModel.launcherSignIn)}" />
 
-        <TextView
-            android:id="@+id/launcher_sign_in"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_2dp"
-            android:layout_marginEnd="@dimen/_8dp"
-            android:gravity="center"
-            android:padding="@dimen/_4dp"
-            android:text="@string/launcher_sign_in"
-            app:textColor="@{Integer.valueOf(viewModel.launcherSignIn)}"
-            android:textSize="@dimen/_18sp"
-            android:textStyle="bold" />
-    </LinearLayout>
+            </LinearLayout>
 
-</LinearLayout>
-</FrameLayout>
+        </LinearLayout>
+
+    </FrameLayout>
+
 </layout>

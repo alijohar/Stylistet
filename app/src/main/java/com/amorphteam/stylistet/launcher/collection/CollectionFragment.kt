@@ -29,18 +29,19 @@ class CollectionFragment : Fragment() {
 
         viewModel = ViewModelProvider(this)[CollectionViewModel::class.java]
 
-        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_collection,container,false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_collection, container, false)
 
-        binding.next.setOnClickListener{view: View ->
-            view.findNavController().navigate(R.id.action_collectionFragment_to_customizeDataFragment)
+        binding.next.setOnClickListener { view: View ->
+            view.findNavController()
+                .navigate(R.id.action_collectionFragment_to_customizeDataFragment)
 
         }
 
         val manager = GridLayoutManager(activity, 3)
         binding.recyclerView.layoutManager = manager
 
-        val adapter = CollectionRecyclerAdapter(CollectionListener {
-            collectionId ->  Toast.makeText(context, "${collectionId}", Toast.LENGTH_SHORT).show()
+        val adapter = CollectionRecyclerAdapter(CollectionListener { collectionId ->
+            Toast.makeText(context, "${collectionId}", Toast.LENGTH_SHORT).show()
         })
 
 

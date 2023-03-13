@@ -3,15 +3,22 @@ package com.amorphteam.stylistet.launcher.customize
 import android.graphics.Rect
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.amorphteam.stylistet.R
 import com.amorphteam.stylistet.databinding.FragmentCustomizeDataBinding
+import com.google.android.material.slider.RangeSlider
+import java.lang.String.format
+import java.text.NumberFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 class CustomizeDataFragment : Fragment() {
 
@@ -25,11 +32,12 @@ class CustomizeDataFragment : Fragment() {
 
         viewModel = ViewModelProvider(this)[CustomizeDataViewModel::class.java]
 
-        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_customize_data,container,false)
+        binding =
+            DataBindingUtil.inflate(inflater, R.layout.fragment_customize_data, container, false)
         binding.viewModel = viewModel
 
-        val adapter = FavotiteColorRecyclerAdapter(FavoriteColorListener {
-                ColorId ->  Toast.makeText(context,"${ColorId}", Toast.LENGTH_SHORT).show()
+        val adapter = FavotiteColorRecyclerAdapter(FavoriteColorListener { ColorId ->
+            Toast.makeText(context, "${ColorId}", Toast.LENGTH_SHORT).show()
         })
 
         binding.recyclerView.adapter = adapter
@@ -39,6 +47,53 @@ class CustomizeDataFragment : Fragment() {
         binding.recyclerView.apply {
             setHasFixedSize(true)
             layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+        }
+
+
+        binding.rangeSliderView.addOnSliderTouchListener(object :
+            RangeSlider.OnSliderTouchListener {
+            override fun onStartTrackingTouch(slider: RangeSlider) {
+                Log.i("sam1", "$slider")
+            }
+
+            override fun onStopTrackingTouch(slider: RangeSlider) {
+                // Responds to when slider's touch event is being stopped
+                Log.i("sam2", "$slider")
+            }
+        })
+
+        binding.rangeSliderView.addOnChangeListener { rangeSlider, value, fromUser ->
+
+            when (value) {
+                0.0.toFloat() -> {
+                    binding.trickleRateValue.text = "$9"
+                }
+
+                10.0.toFloat() -> {
+                    binding.trickleRateValue.text = "$99 _ $9"
+                }
+
+                20.0.toFloat() -> {
+                    binding.trickleRateValue.text = "$999 _ $9"
+                }
+
+                30.0.toFloat() -> {
+                    binding.trickleRateValue.text = "$9999 _ $9"
+                }
+            }
+        }
+
+
+        binding.rangeSliderView.setLabelFormatter { value: Float ->
+            when (value) {
+                0.0.toFloat() -> format("$")
+                10.0.toFloat() -> format("$$")
+                20.0.toFloat() -> format("$$$")
+                30.0.toFloat() -> format("$$$$")
+                else -> {
+                    format("$")
+                }
+            }
         }
 
         return binding.root

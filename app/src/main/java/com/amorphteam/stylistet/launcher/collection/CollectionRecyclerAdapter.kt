@@ -7,9 +7,11 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.amorphteam.stylistet.databinding.CardViewCollectionFragmentBinding
 
-class CollectionRecyclerAdapter(val clickListener: CollectionListener): ListAdapter<CollectionData, CollectionRecyclerAdapter.ViewHolder>(CollectionDiffCallback()){
+class CollectionRecyclerAdapter(val clickListener: CollectionListener) :
+    ListAdapter<CollectionData, CollectionRecyclerAdapter.ViewHolder>(CollectionDiffCallback()) {
 
-    class ViewHolder private constructor(val binding: CardViewCollectionFragmentBinding): RecyclerView.ViewHolder(binding.root){
+    class ViewHolder private constructor(val binding: CardViewCollectionFragmentBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: CollectionData, clickListener: CollectionListener) {
             binding.cardViewCollection = item
@@ -21,7 +23,8 @@ class CollectionRecyclerAdapter(val clickListener: CollectionListener): ListAdap
         companion object {
             fun from(parent: ViewGroup): ViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
-                val binding = CardViewCollectionFragmentBinding.inflate(layoutInflater, parent,false)
+                val binding =
+                    CardViewCollectionFragmentBinding.inflate(layoutInflater, parent, false)
                 return ViewHolder(binding)
             }
         }
@@ -52,8 +55,8 @@ class CollectionDiffCallback : DiffUtil.ItemCallback<CollectionData>() {
     }
 }
 
-class CollectionListener(val clicklistener: (collectionId: Int) -> Unit){
+class CollectionListener(val clicklistener: (collectionId: Int) -> Unit) {
 
-    fun onClick(collection: CollectionData) =  clicklistener(collection.id)
+    fun onClick(collection: CollectionData) = clicklistener(collection.id)
 
 }

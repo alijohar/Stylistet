@@ -7,9 +7,11 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.amorphteam.stylistet.databinding.CardViewCustomizeFragmentBinding
 
-class FavotiteColorRecyclerAdapter(val clickListener: FavoriteColorListener): ListAdapter<FavoriteColorData,FavotiteColorRecyclerAdapter.ViewHolder>(CustomizeDiffCallback()) {
+class FavotiteColorRecyclerAdapter(val clickListener: FavoriteColorListener) :
+    ListAdapter<FavoriteColorData, FavotiteColorRecyclerAdapter.ViewHolder>(CustomizeDiffCallback()) {
 
-    class ViewHolder private constructor(val binding: CardViewCustomizeFragmentBinding):RecyclerView.ViewHolder(binding.root){
+    class ViewHolder private constructor(val binding: CardViewCustomizeFragmentBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: FavoriteColorData, clickListener: FavoriteColorListener) {
             binding.cardViewCustomize = item
@@ -18,12 +20,13 @@ class FavotiteColorRecyclerAdapter(val clickListener: FavoriteColorListener): Li
         }
 
         companion object {
-             fun from(parent: ViewGroup): ViewHolder {
+            fun from(parent: ViewGroup): ViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
-                 val binding = CardViewCustomizeFragmentBinding.inflate(layoutInflater, parent, false)
-                 return ViewHolder(binding)
+                val binding =
+                    CardViewCustomizeFragmentBinding.inflate(layoutInflater, parent, false)
+                return ViewHolder(binding)
 
-             }
+            }
         }
     }
 
@@ -38,7 +41,7 @@ class FavotiteColorRecyclerAdapter(val clickListener: FavoriteColorListener): Li
 
 }
 
-class CustomizeDiffCallback(): DiffUtil.ItemCallback<FavoriteColorData>(){
+class CustomizeDiffCallback() : DiffUtil.ItemCallback<FavoriteColorData>() {
     override fun areItemsTheSame(p0: FavoriteColorData, p1: FavoriteColorData): Boolean {
         return p0.id == p1.id
     }
@@ -48,7 +51,7 @@ class CustomizeDiffCallback(): DiffUtil.ItemCallback<FavoriteColorData>(){
     }
 }
 
-class FavoriteColorListener(val clickListener: (ColorId: Int) -> Unit ) {
+class FavoriteColorListener(val clickListener: (ColorId: Int) -> Unit) {
     fun onClick(colorData: FavoriteColorData) = clickListener(colorData.id)
 
 }

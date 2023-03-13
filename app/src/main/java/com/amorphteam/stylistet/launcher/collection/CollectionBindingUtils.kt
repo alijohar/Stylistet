@@ -6,7 +6,7 @@ import androidx.databinding.BindingAdapter
 
 
 @BindingAdapter("imageCollection")
- fun ImageView.setImageCollection(item: CollectionData?) {
+fun ImageView.setImageCollection(item: CollectionData?) {
     item?.let {
         setBackgroundResource(item.image)
     }
@@ -14,10 +14,10 @@ import androidx.databinding.BindingAdapter
 }
 
 
-    @BindingAdapter("nameCollection")
-    fun TextView.setNameCollection(item: CollectionData?) {
-        item?.let {
-            text = item.name
-        }
+@BindingAdapter("nameCollection")
+fun TextView.setNameCollection(item: CollectionData?) {
+    item?.let {
+        text = item.name
     }
+}
 

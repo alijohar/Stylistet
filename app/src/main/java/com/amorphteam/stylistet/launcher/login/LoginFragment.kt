@@ -22,9 +22,9 @@ class LoginFragment : Fragment() {
     ): View? {
         viewModel = ViewModelProvider(this)[LoginViewModel::class.java]
 
-        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_login,container,false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false)
 
-        binding.next.setOnClickListener {view: View ->
+        binding.next.setOnClickListener { view: View ->
             view.findNavController().navigate(R.id.action_loginFragment_to_collectionFragment)
         }
 

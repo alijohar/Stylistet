@@ -32,12 +32,12 @@ class LauncherFragment : Fragment() {
 
         viewModel = ViewModelProvider(this)[LauncherViewModel::class.java]
 
-        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_launcher,container,false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_launcher, container, false)
         binding.viewModel = viewModel
 
         viewModel.onValueChanged()
 
-        binding.launcherStartNow.setOnClickListener{view: View ->
+        binding.launcherStartNow.setOnClickListener { view: View ->
             view.findNavController().navigate(R.id.action_launcherFragment_to_loginFragment)
         }
 
