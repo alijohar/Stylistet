@@ -10,6 +10,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
+import androidx.recyclerview.selection.SelectionPredicates
+import androidx.recyclerview.selection.SelectionTracker
+import androidx.recyclerview.selection.StorageStrategy
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -44,9 +47,21 @@ class CollectionFragment : Fragment() {
             Toast.makeText(context, "${collectionId}", Toast.LENGTH_SHORT).show()
         })
 
-
         adapter.submitList(ArrayList(viewModel.collections))
         binding.recyclerView.adapter = adapter
+
+       val tracker = SelectionTracker.Builder<String>(
+            "mySelection",
+            binding.recyclerView,
+            MyItemKeyProvider(adapter),
+            MyItemDetailsLookup(binding.recyclerView),
+            StorageStrategy.createStringStorage()
+        ).withSelectionPredicate(
+            SelectionPredicates.createSelectAnything()
+        ).build()
+
+
+        adapter.tracker = tracker
 
 
         return binding.root
