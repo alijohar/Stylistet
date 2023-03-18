@@ -10,9 +10,6 @@
             name="cardViewCollection"
             type="com.amorphteam.stylistet.launcher.collection.CollectionData" />
 
-        <variable
-            name="clickListener"
-            type="com.amorphteam.stylistet.launcher.collection.CollectionListener" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -20,9 +17,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/_10dp"
-        android:foreground="?selectableItemBackground"
-        android:onClick="@{() -> clickListener.onClick(cardViewCollection)}"
-        card_view:cardBackgroundColor="#FFFF"
+        app:cardElevation="0dp"
         card_view:cardCornerRadius="@dimen/_8dp">
 
         <RelativeLayout
@@ -38,6 +33,12 @@
 
                 />
 
+            <ImageView
+                android:id="@+id/selected_bu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/tick_square"/>
+
             <TextView
                 android:id="@+id/text_collection"
                 android:layout_width="wrap_content"
@@ -47,6 +48,7 @@
                 app:nameCollection="@{cardViewCollection}"
 
                 />
+
 
         </RelativeLayout>
 

@@ -1,5 +1,6 @@
 package com.amorphteam.stylistet.launcher.collection
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.ViewGroup
@@ -12,65 +13,43 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.amorphteam.stylistet.databinding.CardViewCollectionFragmentBinding
 
-//TODO SELECTION IS NOT WORKING
-
-class CollectionRecyclerAdapter(val clickListener: CollectionListener) :
+class CollectionRecyclerAdapter :
     ListAdapter<CollectionData, CollectionRecyclerAdapter.ViewHolder>(CollectionDiffCallback()) {
 
-    var tracker: SelectionTracker<String>? = null
+    var tracker: SelectionTracker<Long>? = null
 
     init {
         setHasStableIds(true)
     }
 
-    class ViewHolder private constructor(val binding: CardViewCollectionFragmentBinding) :
+    inner class ViewHolder (val binding: CardViewCollectionFragmentBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(
             item: CollectionData,
             isActivated: Boolean,
-            clickListener: CollectionListener,
-            tracker: SelectionTracker<String>?
         ) = with(itemView) {
-
             binding.cardViewCollection = item
-            binding.clickListener = clickListener
-            binding.imageCollection.isVisible = !isActivated
-            tracker?.addObserver(
-                object : SelectionTracker.SelectionObserver<String>() {
-                    override fun onSelectionChanged() {
-                        super.onSelectionChanged()
-                        val items: Int? = tracker?.selection?.size()
-                        binding.textCollection.isVisible = items!! > 0
-                    }
-                })
-
             binding.executePendingBindings()
-
+            binding.selectedBu.isVisible = isActivated
         }
 
-        fun getItemDetails(): ItemDetailsLookup.ItemDetails<String> =
-            object : ItemDetailsLookup.ItemDetails<String>() {
+        fun getItemDetails(): ItemDetailsLookup.ItemDetails<Long> =
+            object : ItemDetailsLookup.ItemDetails<Long>() {
                 override fun getPosition(): Int = adapterPosition
-                override fun getSelectionKey(): String? = itemId.toString()
-
+                override fun getSelectionKey(): Long = itemId
+                override fun inSelectionHotspot(e: MotionEvent): Boolean = true
 
             }
 
-        companion object {
-            fun from(parent: ViewGroup): ViewHolder {
-                val layoutInflater = LayoutInflater.from(parent.context)
-                val binding =
-                    CardViewCollectionFragmentBinding.inflate(layoutInflater, parent, false)
-                return ViewHolder(binding)
-            }
-        }
+
     }
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder {
-        //p0 = parent
-        //p1 = view type
-        return ViewHolder.from(p0)
+        val layoutInflater = LayoutInflater.from(p0.context)
+        val binding =
+            CardViewCollectionFragmentBinding.inflate(layoutInflater, p0, false)
+        return ViewHolder(binding)
     }
 
     override fun onBindViewHolder(p0: ViewHolder, p1: Int) {
@@ -79,7 +58,7 @@ class CollectionRecyclerAdapter(val clickListener: CollectionListener) :
         val item = getItem(p1)
 
         tracker?.let {
-            p0.bind(item, it.isSelected(p1.toLong().toString()), clickListener, tracker)
+            p0.bind(item, it.isSelected(p1.toLong()))
 
         }
 
@@ -99,28 +78,5 @@ class CollectionDiffCallback : DiffUtil.ItemCallback<CollectionData>() {
     }
 }
 
-class CollectionListener(val clicklistener: (collectionId: Int) -> Unit) {
 
-    fun onClick(collection: CollectionData) = clicklistener(collection.id)
 
-}
-
-class MyItemKeyProvider(private val adapter: CollectionRecyclerAdapter) :
-    ItemKeyProvider<String>(SCOPE_CACHED) {
-    override fun getKey(position: Int): String? =
-        adapter.currentList[position].name
-
-    override fun getPosition(key: String): Int =
-        adapter.currentList.indexOfFirst { it.name == key }
-}
-
-class MyItemDetailsLookup(private val recyclerView: RecyclerView) :
-    ItemDetailsLookup<String>() {
-    override fun getItemDetails(event: MotionEvent): ItemDetails<String>? {
-        val view = recyclerView.findChildViewUnder(event.x, event.y)
-        if (view != null) {
-            return (recyclerView.getChildViewHolder(view) as CollectionRecyclerAdapter.ViewHolder).getItemDetails()
-        }
-        return null
-    }
-}

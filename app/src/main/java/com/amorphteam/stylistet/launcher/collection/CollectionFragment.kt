@@ -12,6 +12,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import androidx.recyclerview.selection.SelectionPredicates
 import androidx.recyclerview.selection.SelectionTracker
+import androidx.recyclerview.selection.StableIdKeyProvider
 import androidx.recyclerview.selection.StorageStrategy
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -24,11 +25,11 @@ class CollectionFragment : Fragment() {
 
     private lateinit var binding: FragmentCollectionBinding
     private lateinit var viewModel: CollectionViewModel
-
+    private var tracker: SelectionTracker<Long>? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         viewModel = ViewModelProvider(this)[CollectionViewModel::class.java]
 
@@ -43,19 +44,17 @@ class CollectionFragment : Fragment() {
         val manager = GridLayoutManager(activity, 3)
         binding.recyclerView.layoutManager = manager
 
-        val adapter = CollectionRecyclerAdapter(CollectionListener { collectionId ->
-            Toast.makeText(context, "${collectionId}", Toast.LENGTH_SHORT).show()
-        })
+        val adapter = CollectionRecyclerAdapter()
 
         adapter.submitList(ArrayList(viewModel.collections))
         binding.recyclerView.adapter = adapter
 
-       val tracker = SelectionTracker.Builder<String>(
+        tracker = SelectionTracker.Builder<Long>(
             "mySelection",
             binding.recyclerView,
-            MyItemKeyProvider(adapter),
+            StableIdKeyProvider(binding.recyclerView),
             MyItemDetailsLookup(binding.recyclerView),
-            StorageStrategy.createStringStorage()
+            StorageStrategy.createLongStorage()
         ).withSelectionPredicate(
             SelectionPredicates.createSelectAnything()
         ).build()
