@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/recommanded">
+
+    <fragment
+        android:id="@+id/recommanded"
+        android:name="com.amorphteam.stylistet.ui.recomanded.RecommendedFragment"
+        tools:layout="@layout/fragment_recommended" />
+
+    <fragment
+        android:id="@+id/fav_items"
+        android:name="com.amorphteam.stylistet.ui.favourites.FavItemsFragment"
+        tools:layout="@layout/fragment_fav_items" />
+
+    <fragment
+        android:id="@+id/profile_setting"
+        android:name="com.amorphteam.stylistet.ui.profile.ProfileFragment"
+        tools:layout="@layout/fragment_profile" />
+</navigation>

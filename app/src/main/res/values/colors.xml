@@ -10,6 +10,9 @@
     <color name="seekbar">#572348</color>
     <color name="gray">#9D9D9D</color>
 
+    <color name="grey">#BBBBBB</color>
+    <color name="grey_light">#F5F5F5</color>
+    <color name="grey_dark">#6B6B6B</color>
 
 
 </resources>

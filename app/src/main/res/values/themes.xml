@@ -8,12 +8,16 @@
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
         <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="homeAsUpIndicator">@drawable/back_reverse</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">true</item>
         <!-- Customize your theme here. -->
         <item name="sliderStyle">@style/Widget.App.Slider</item>
 
+        <item name="android:fontFamily">@font/main_font</item>
+        <item name="fontFamily">@font/main_font</item>
     </style>
 
 
@@ -31,12 +35,31 @@
         <item name="fontFamily">@font/tajawal_bold</item>
     </style>
 
+    <style name="CustomChip" parent="Base.Widget.MaterialComponents.Chip">
+        <item name="android:checkable">true</item>
+
+        <item name="chipIconVisible">false</item>
+        <item name="checkedIconVisible">false</item>
+        <item name="closeIconVisible">false</item>
+
+        <item name="checkedIcon">@drawable/ic_mtrl_chip_checked_black</item>
+        <item name="chipStrokeColor">@color/choise_chip_text</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/choise_chip_text</item>
+        <item name="chipBackgroundColor">@color/chip_bk</item>
+        <item name="rippleColor">@color/chip_ripple</item>
 
     <!-- Slider theme. -->
     <style name="Widget.App.Slider" parent="Widget.Material3.Slider">
         <item name="materialThemeOverlay">@style/ThemeOverlay.App.Slider</item>
         <item name="labelStyle">@style/Widget.App.Tooltip</item>
         <item name="trackColorInactive">@color/gray</item>
+    </style>
+
+    <style name="Theme.Stylistet.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
         <item name="trackColorActive">@color/seekbar</item>
         <item name="trackHeight">@dimen/_2dp</item>
         <item name="haloRadius">@dimen/_4dp</item>
@@ -46,6 +69,10 @@
         <item name="colorPrimary">@color/seekbar</item>
         <item name="colorOnPrimary">@color/black</item>
         <item name="colorOnSurface">@color/seekbar</item>
+    <style name="Theme.Stylistet.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.Stylistet.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
     </style>
 
     <style name="Widget.App.Tooltip" parent="Widget.Material3.Tooltip">
