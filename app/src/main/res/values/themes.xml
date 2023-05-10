@@ -49,7 +49,7 @@
         <item name="android:textColor">@color/choise_chip_text</item>
         <item name="chipBackgroundColor">@color/chip_bk</item>
         <item name="rippleColor">@color/chip_ripple</item>
-
+    </style>
     <!-- Slider theme. -->
     <style name="Widget.App.Slider" parent="Widget.Material3.Slider">
         <item name="materialThemeOverlay">@style/ThemeOverlay.App.Slider</item>
