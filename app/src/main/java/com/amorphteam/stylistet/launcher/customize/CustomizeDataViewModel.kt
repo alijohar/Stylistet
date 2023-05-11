@@ -16,6 +16,10 @@ import com.google.android.material.slider.Slider
 
 class CustomizeDataViewModel : ViewModel() {
 
+    private val _openExplorer = MutableLiveData<Boolean>()
+     val openExplorer:LiveData<Boolean>
+         get() = _openExplorer
+
     private val _rangeSlider = MutableLiveData<RangeSlider>()
     val rangeSlider: LiveData<RangeSlider>
         get() = _rangeSlider
@@ -31,6 +35,9 @@ class CustomizeDataViewModel : ViewModel() {
     )
 
 
+    fun openExplorerAct(){
+        _openExplorer.value = true
+    }
 
     }
 

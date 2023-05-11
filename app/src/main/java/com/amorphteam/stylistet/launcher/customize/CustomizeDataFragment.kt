@@ -1,5 +1,6 @@
 package com.amorphteam.stylistet.launcher.customize
 
+import android.content.Intent
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.util.Log
@@ -10,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.amorphteam.stylistet.MainActivity
 import com.amorphteam.stylistet.R
 import com.amorphteam.stylistet.databinding.FragmentCustomizeDataBinding
 import com.google.android.material.slider.RangeSlider
@@ -36,6 +38,9 @@ class CustomizeDataFragment : Fragment() {
             Toast.makeText(context, "${ColorId}", Toast.LENGTH_SHORT).show()
         })
 
+        binding.next.setOnClickListener {
+            startActivity(Intent(requireContext(), MainActivity::class.java))
+        }
         binding.recyclerView.adapter = adapter
         adapter.submitList(ArrayList(viewModel.favoriteColor))
 
