@@ -85,7 +85,6 @@
 
             <com.google.android.material.slider.RangeSlider
                 android:id="@+id/range_slider_view"
-                style="@style/Widget.App.Slider"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/trickle_rate_value"
@@ -93,7 +92,6 @@
                 android:stepSize="10.0"
                 android:valueFrom="0.0"
                 android:valueTo="30.0"
-                app:labelBehavior="visible"
                 app:values="@array/initial_slider_values" />
             
         </RelativeLayout>

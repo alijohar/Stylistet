@@ -14,7 +14,6 @@
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:windowLightStatusBar">true</item>
         <!-- Customize your theme here. -->
-        <item name="sliderStyle">@style/Widget.App.Slider</item>
 
         <item name="android:fontFamily">@font/main_font</item>
         <item name="fontFamily">@font/main_font</item>
@@ -50,12 +49,7 @@
         <item name="chipBackgroundColor">@color/chip_bk</item>
         <item name="rippleColor">@color/chip_ripple</item>
     </style>
-    <!-- Slider theme. -->
-    <style name="Widget.App.Slider" parent="Widget.Material3.Slider">
-        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Slider</item>
-        <item name="labelStyle">@style/Widget.App.Tooltip</item>
-        <item name="trackColorInactive">@color/gray</item>
-    </style>
+
 
     <style name="Theme.Stylistet.NoActionBar">
         <item name="windowActionBar">false</item>
@@ -65,27 +59,10 @@
         <item name="haloRadius">@dimen/_4dp</item>
     </style>
 
-    <style name="ThemeOverlay.App.Slider" parent="Widget.App.Slider">
-        <item name="colorPrimary">@color/seekbar</item>
-        <item name="colorOnPrimary">@color/black</item>
-        <item name="colorOnSurface">@color/seekbar</item>
+
     <style name="Theme.Stylistet.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.Stylistet.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-
-    </style>
-
-    <style name="Widget.App.Tooltip" parent="Widget.Material3.Tooltip">
-        <item name="android:textAppearance">@style/TextAppearance.App.Tooltip</item>
-        <item name="backgroundTint">@color/white</item>
-    </style>
-
-    <style name="TextAppearance.App.Tooltip" parent="TextAppearance.Material3.BodySmall">
-        <item name="android:textColor">@color/black</item>
-        <item name="fontFamily">@font/tajawal_bold</item>
-        <item name="android:fontFamily">@font/tajawal_bold</item>
-
-    </style>
 
 
 </resources>
