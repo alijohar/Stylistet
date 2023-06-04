@@ -12,12 +12,12 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.amorphteam.stylistet.R
 import com.amorphteam.stylistet.databinding.ItemStyleRecommendedBinding
-import com.amorphteam.stylistet.model.ImgeWithTag
+import com.amorphteam.stylistet.model.CollectionModel
 import com.amorphteam.stylistet.ui.detail.DetailActivity
 import com.amorphteam.stylistet.util.LocalData
 
 class StyleRecommendedAdapter(val context: Context) :
-    ListAdapter<ImgeWithTag, StyleRecommendedAdapter.ViewHolder>(StyleRecommendedDiffCallback()) {
+    ListAdapter<CollectionModel, StyleRecommendedAdapter.ViewHolder>(StyleRecommendedDiffCallback()) {
 
 
 
@@ -38,7 +38,7 @@ class StyleRecommendedAdapter(val context: Context) :
         var likedCollections = ArrayList<Int>()
 
         fun bind(
-            item: ImgeWithTag, context: Context
+            item: CollectionModel, context: Context
         ) {
             binding.recommendedItem = item
             binding.executePendingBindings()
@@ -73,12 +73,12 @@ class StyleRecommendedAdapter(val context: Context) :
 
 }
 
-class StyleRecommendedDiffCallback : DiffUtil.ItemCallback<ImgeWithTag>() {
-    override fun areItemsTheSame(oldItem: ImgeWithTag, newItem: ImgeWithTag): Boolean {
-        return oldItem.image == newItem.image
+class StyleRecommendedDiffCallback : DiffUtil.ItemCallback<CollectionModel>() {
+    override fun areItemsTheSame(oldItem: CollectionModel, newItem: CollectionModel): Boolean {
+        return oldItem.main_image == newItem.main_image
     }
 
-    override fun areContentsTheSame(oldItem: ImgeWithTag, newItem: ImgeWithTag): Boolean {
+    override fun areContentsTheSame(oldItem: CollectionModel, newItem: CollectionModel): Boolean {
         return oldItem == newItem
     }
 

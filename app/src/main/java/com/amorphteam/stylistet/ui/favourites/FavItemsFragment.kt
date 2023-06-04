@@ -28,7 +28,7 @@ class FavItemsFragment : Fragment() {
         val root: View = binding.root
 
         val itemsDetailAdapter = ItemsDetailAdapter(requireContext())
-        itemsDetailAdapter.submitList(LocalData.getLikeItemsData())
+//        itemsDetailAdapter.submitList(LocalData.getLikeItemsData())
         binding.recyclerView.setHasFixedSize(false)
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerView.adapter = itemsDetailAdapter

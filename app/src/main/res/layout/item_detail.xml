@@ -6,7 +6,7 @@
     <data>
         <variable
             name="item"
-            type="com.amorphteam.stylistet.model.ItemCollection" />
+            type="com.amorphteam.stylistet.model.ItemSet" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

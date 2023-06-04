@@ -5,7 +5,7 @@
     <data>
         <variable
             name="recommendedItem"
-            type="com.amorphteam.stylistet.model.ImgeWithTag" />
+            type="com.amorphteam.stylistet.model.CollectionModel" />
     </data>
 
     <LinearLayout
@@ -19,13 +19,13 @@
         <com.makeramen.roundedimageview.RoundedImageView
             android:id="@+id/item_image"
             android:layout_gravity="center"
-            android:layout_width="match_parent"
+            android:maxWidth="270dp"
             android:layout_margin="@dimen/half_margin"
             app:riv_corner_radius="12dp"
             android:layout_height="wrap_content"
             app:recommendedImage="@{recommendedItem}"
             android:adjustViewBounds="true"
-            android:scaleType="centerCrop" />
+            android:scaleType="centerCrop"  android:layout_width="wrap_content"/>
 
 
         <LinearLayout

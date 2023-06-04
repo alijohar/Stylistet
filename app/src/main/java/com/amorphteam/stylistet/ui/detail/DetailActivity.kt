@@ -7,35 +7,43 @@ import android.view.Window
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.amorphteam.stylistet.R
 import com.amorphteam.stylistet.databinding.ActivityDetailBinding
+import com.amorphteam.stylistet.model.CollectionModel
 import com.amorphteam.stylistet.model.ImgeWithTag
 import com.amorphteam.stylistet.ui.adapter.ItemsDetailAdapter
 import com.amorphteam.stylistet.util.LocalData
 
 class DetailActivity : AppCompatActivity() {
-    lateinit var item: ImgeWithTag
+    lateinit var item: CollectionModel
     private lateinit var binding: ActivityDetailBinding
-
+    private lateinit var viewModel: DetailViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        item = intent.getSerializableExtra(LocalData.PASS_DATA) as ImgeWithTag
+        item = intent.getSerializableExtra(LocalData.PASS_DATA) as CollectionModel
         hideStatusBar()
         binding = ActivityDetailBinding.inflate(layoutInflater)
-        binding.mainImage.setImageResource(item.image)
+        viewModel = ViewModelProvider(this)[DetailViewModel::class.java]
+        binding.viewModel = viewModel
+        binding.item = item
+        viewModel.getOnlineModel(item.pk)
         setContentView(binding.root)
-
         setSupportActionBar(findViewById(R.id.toolbar))
         supportActionBar?.setDisplayHomeAsUpEnabled(true);
         supportActionBar?.setDisplayShowHomeEnabled(true);
-        binding.toolbarLayout.title = title
+        binding.toolbarLayout.title = item.name
 
-        val itemsDetailAdapter = ItemsDetailAdapter(this)
-        itemsDetailAdapter.submitList(LocalData.getItemsData())
-        binding.content.recyclerView.setHasFixedSize(false)
-        binding.content.recyclerView.layoutManager = LinearLayoutManager(this)
-        binding.content.recyclerView.adapter = itemsDetailAdapter
+
+        viewModel.result.observe(this){
+            val itemsDetailAdapter = ItemsDetailAdapter(this)
+            itemsDetailAdapter.submitList(it)
+            binding.content.recyclerView.setHasFixedSize(false)
+            binding.content.recyclerView.layoutManager = LinearLayoutManager(this)
+            binding.content.recyclerView.adapter = itemsDetailAdapter
+        }
+
 
 
     }
